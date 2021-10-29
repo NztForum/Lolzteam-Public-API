@@ -6,7 +6,7 @@ This repository includes code for:
  * XenForo consumer add-on `xenforo_consumer/`
  * WordPress consumer plugin `wordpress_consumer/`
  * PHP consumer demo `php_demo/`
- * [Documents](https://github.com/xfrocks/bdApi/blob/master/docs/api.markdown) `docs/`
+ * [Documents](https://github.com/grisha2217/Lolzteam-Public-API/blob/master/docs/api.markdown) `docs/`
 
 ## Demos
 

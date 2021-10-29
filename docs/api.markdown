@@ -1563,7 +1563,7 @@ Parameters:
  * `user_email` (_optional_): new email of the user.
 
  * `username` (_optional_): new username of the user. Changing username requires Administrator permission.
- * `user_title` (_optional_): new custom title of the user. Changing user title requires Administrator permission. Since forum-2015101201.
+ * `user_title` (_optional_): new custom title of the user. 
  * `primary_group_id` (_optional_): id of new primary group. Since forum-2015100702.
  * `secondary_group_ids` (_optional_): array of ids of new secondary groups. Since forum-2015100702.
 

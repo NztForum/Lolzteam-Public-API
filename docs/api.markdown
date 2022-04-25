@@ -9,11 +9,13 @@ The API implements the OAuth 2.0 Authorization Framework ([RFC 6749](http://tool
  * `usercp`
  * `conversate`
  * `admincp`
+ * `payment`
+ * `market`
 
 ### Supported grant types
  * Authorization code
  * Implicit
- * User credentials (username / password)
+ * [Disabled] User credentials (username / password) 
  * Client credentials
  * Refresh token
  * JWT bearer

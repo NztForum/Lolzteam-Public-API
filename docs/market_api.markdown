@@ -34,7 +34,7 @@ Parameters:
  * `Optional category parameters` (_optional_): You can find it using "Inspect code element" in your browser
 
 
-### GET `/market/user/:userId`
+### GET `/market/user`
 Displays info about your account
 
 Parameters:
@@ -225,7 +225,7 @@ Parameters:
 Adds tag for the account
 
 Parameters:
- * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/:userId`)
+ * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/user/`)
 
 
 #### DELETE `/market/:itemId/tag/`

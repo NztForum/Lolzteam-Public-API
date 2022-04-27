@@ -81,6 +81,18 @@ Parameters:
  * `showStickyItems` (_optional_): If yes, API will return stickied accounts in results
  * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser
 
+### GET `/market/fave`
+Displays a list of favourites accounts
+
+Parameters:
+ * N/A
+
+### GET `/market/viewed`
+Displays a list of viewed accounts
+
+Parameters:
+ * N/A
+
 ### GET `/market/:itemId`
 Displays account information
 

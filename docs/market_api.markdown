@@ -225,7 +225,7 @@ Parameters:
 Adds tag for the account
 
 Parameters:
- * `tag_id` (__required__) Tag id (can be gotten via GET `/market/:userId`)
+ * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/:userId`)
 
 
 #### DELETE `/market/:itemId/tag/`

@@ -87,21 +87,29 @@ Parameters:
 You need to make 3 requests:
 **POST `/market/:itemId/reserve`**, **POST `/market/:itemId/check-account`** and **POST `/market/:itemId/confirm-buy`**
 
-#### GET `/market/:itemId/reserve`
+#### POST `/market/:itemId/reserve`
 Reserves account for you. Reserve time - 300 seconds.
 
 Parameters:
 
  * `price` (__required__) Currenct price of account in your currency
 
-#### GET `/market/:itemId/check-account`
+
+#### POST `/market/:itemId/cancel-reserve`
+Cancels reserve.
+
+Parameters:
+
+ * N/A
+
+#### POST `/market/:itemId/check-account`
 Checking account for validity. If the account is invalid, the purchase will be canceled automatically (you don't need to make request POST `/market/:itemId/cancel-reserve`
 
 Parameters:
 
  * N/A
 
-#### GET `/market/:itemId/confirm-buy`
+#### POST `/market/:itemId/confirm-buy`
 Confirm buy.
 
 Parameters:

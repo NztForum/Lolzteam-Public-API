@@ -214,7 +214,6 @@ Parameters:
  * `title` (_optional_) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
  * `title_en` (_optional_) English title of account. If `title_en` specified and `title` is empty, `title` will be automatically translated to Russian language.
  * `price` (_optional_) Account price in your currency
- * `currency` (_optional_) Using currency
  * `item_origin` (_optional_) Item origin
  * `description` (_optional_) Account public description
  * `information` (_optional_) Account private information (visible for buyer only if purchased)

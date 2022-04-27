@@ -182,8 +182,42 @@ Parameters:
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
 
 
-#### POST `/market/item/:itemId/goods/check`
+#### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.
 
 Parameters:
  * `close_item` (_optional_) If set, the item will be closed `item_state = closed`
+
+
+## Account managing
+
+#### POST `/market/:itemId/edit/`
+Edits any details of account.
+
+Parameters:
+
+ * `title` (__required__) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
+ * `title_en` (_optional_) English title of account. If `title_en` specified and `title` is empty, `title` will be automatically translated to Russian language.
+ * `price` (__required__) Account price in your currency
+ * `currency` (__required__) Using currency
+ * `item_origin` (__required__) Item origin
+ * `description` (_optional_) Account public description
+ * `information` (_optional_) Account private information (visible for buyer only if purchased)
+ * `has_email_login_data` (_optional_) Set, if you have email login data
+ * `email_login_data` (_optional_) Email login data (login:pass format) 
+ * `email_type` (_optional_) Email type. Allowed values: native, autoreg
+ * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
+
+
+#### POST `/market/:itemId/tag/`
+Adds tag for the account
+
+Parameters:
+ * `tag_id` (__required__) Tag id
+
+
+#### DELETE `/market/:itemId/tag/`
+Deletes tag for the account
+
+Parameters:
+ * `tag_id` (__required__) Tag id

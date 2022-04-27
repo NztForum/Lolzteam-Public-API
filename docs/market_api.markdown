@@ -146,3 +146,17 @@ Parameters:
  * `username` (__required__) Username of receiver. If `username` specified, `user_id` is not required.
  * `amount` (__required__) Amount to send in your currency.
  * `currency` (__required__) Using currency for amount.
+ * `secret_answer` (__required__) Secret answer of your account
+ * `transfer_hold` (_optional_) Hold transfer or not.
+ * `hold_length_value` (_optional_) Hold length value (number).
+ * `hold_length_option` (_optional_) Hold length option (string). Allowed values: hour, day, week, month, year
+
+#### Hold parameters example
+E.g. you want to hold money transfer on 3 days.
+`hold_length_value` - will be '3'
+`hold_length_option` - will be 'days'
+
+
+E.g. you want to hold money transfer on 12 hours.
+`hold_length_value` - will be '12'
+`hold_length_option` - will be 'hours'

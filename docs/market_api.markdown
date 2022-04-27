@@ -41,31 +41,6 @@ Parameters:
  * `showStickyItems` (_optional_): If yes, API will return stickied accounts in results
  * `Optional category parameters` (_optional_): You can find it using "Inspect code element" in your browser
 
-
-### GET `/market/user/:userId/payments`
-Displays list of your payments
- * `type` (_optional_): Type of operation
- **Allowed operation types:**
-    income, 
-    cost,
-    refilled_balance,
-		withdrawal_balance,
-		paid_item,
-		sold_item,
-		money_transfer,
-		receiving_money,
-		internal_purchase,
-		claim_hold
- * `pmin` (_optional_): Minimal price of operation (Inclusive)
- * `pmax` (_optional_): Maximum price of operation (Inclusive)
- * `receiver` (_optional_): Username of user, which receive money from you
- * `sender` (_optional_): Username of user, which sent money to you
- * `startDate` (_optional_): Start date of operation (RFC 3339 date format)
- * `endDate` (_optional_): End date of operation (RFC 3339 date format)
- * `wallet` (_optional_): Wallet, which used for money payots
- * `comment` (_optional_): Comment for money transfers
- * `is_hold` (_optional_): Display hold operations
-
 ### GET `/market/user/:userId/orders`
 Displays a list of purchased accounts
 
@@ -136,7 +111,7 @@ Parameters:
  * N/A
 
 
-## Money transfers
+## Money transfers and payments list
 
 #### POST `/market/balance/transfer/`
 Send money to any user.
@@ -152,13 +127,35 @@ Parameters:
  * `hold_length_value` (_optional_) Hold length value (number).
  * `hold_length_option` (_optional_) Hold length option (string). Allowed values: hour, day, week, month, year
 
-
-
 #### Hold parameters examples
 E.g. you want to hold money transfer on 3 days. `hold_length_value` - will be '3', `hold_length_option` - will be 'days'.
 
 E.g. you want to hold money transfer on 12 hours.
 `hold_length_value` - will be '12', `hold_length_option` - will be 'hours'
+
+### GET `/market/user/:userId/payments`
+Displays list of your payments
+ * `type` (_optional_): Type of operation
+ **Allowed operation types:**
+    income, 
+    cost,
+    refilled_balance,
+		withdrawal_balance,
+		paid_item,
+		sold_item,
+		money_transfer,
+		receiving_money,
+		internal_purchase,
+		claim_hold
+ * `pmin` (_optional_): Minimal price of operation (Inclusive)
+ * `pmax` (_optional_): Maximum price of operation (Inclusive)
+ * `receiver` (_optional_): Username of user, which receive money from you
+ * `sender` (_optional_): Username of user, which sent money to you
+ * `startDate` (_optional_): Start date of operation (RFC 3339 date format)
+ * `endDate` (_optional_): End date of operation (RFC 3339 date format)
+ * `wallet` (_optional_): Wallet, which used for money payots
+ * `comment` (_optional_): Comment for money transfers
+ * `is_hold` (_optional_): Display hold operations
 
 
 ## Account publishing

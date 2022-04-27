@@ -205,7 +205,11 @@ Parameters:
 Edits any details of account.
 
 Parameters:
+* `key` (_optional) Key to edit (key list you can see below). E.g. price.
+* `value` (_optional) Value to edit
+* key_values (_optional_) Key-values to edit (Array). E.g. key_values[title]=Account&key_values[price]=100
 
+#### Key list:
  * `title` (__required__) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
  * `title_en` (_optional_) English title of account. If `title_en` specified and `title` is empty, `title` will be automatically translated to Russian language.
  * `price` (__required__) Account price in your currency

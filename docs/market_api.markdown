@@ -15,6 +15,7 @@ api.lolz.guru/
 20 requests per minute
 
 
+## Accounts list
 ### GET `/market`
 Displays a list of latest accounts
 

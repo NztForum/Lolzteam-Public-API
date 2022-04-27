@@ -84,7 +84,8 @@ Parameters:
  * N/A
 
 ## Account purchasing
-You need to execute 3 request: **POST `/market/:itemId/reserve`**, **POST `/market/:itemId/check-account`** and **POST `/market/:itemId/confirm-buy`**
+You need to make 3 requests:
+**POST `/market/:itemId/reserve`**, **POST `/market/:itemId/check-account`** and **POST `/market/:itemId/confirm-buy`**
 
 #### GET `/market/:itemId/reserve`
 Reserves account for you. Reserve time - 300 seconds.

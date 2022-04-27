@@ -180,3 +180,10 @@ Parameters:
  * `email_login_data` (_optional_) Email login data (login:pass format) 
  * `email_type` (_optional_) Email type. Allowed values: native, autoreg
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
+
+
+#### POST `/market/item/:itemId/goods/check`
+Check account on validity. If account is valid, account will be published on the market.
+
+Parameters:
+ * `close_item` (_optional_) If set, the item will be closed `item_state = closed`

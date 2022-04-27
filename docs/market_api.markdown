@@ -210,11 +210,11 @@ Parameters:
 * key_values (_optional_) Key-values to edit (Array). E.g. key_values[title]=Account&key_values[price]=100
 
 #### Key list:
- * `title` (__required__) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
+ * `title` (_optional_) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
  * `title_en` (_optional_) English title of account. If `title_en` specified and `title` is empty, `title` will be automatically translated to Russian language.
- * `price` (__required__) Account price in your currency
- * `currency` (__required__) Using currency
- * `item_origin` (__required__) Item origin
+ * `price` (_optional_) Account price in your currency
+ * `currency` (_optional_) Using currency
+ * `item_origin` (_optional_) Item origin
  * `description` (_optional_) Account public description
  * `information` (_optional_) Account private information (visible for buyer only if purchased)
  * `has_email_login_data` (_optional_) Set, if you have email login data

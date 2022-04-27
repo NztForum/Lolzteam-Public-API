@@ -153,5 +153,6 @@ Parameters:
 
 #### Hold parameters examples
 E.g. you want to hold money transfer on 3 days. `hold_length_value` - will be '3', `hold_length_option` - will be 'days'.
+
 E.g. you want to hold money transfer on 12 hours.
 `hold_length_value` - will be '12', `hold_length_option` - will be 'hours'

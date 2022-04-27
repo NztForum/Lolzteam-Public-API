@@ -27,7 +27,7 @@ Parameters:
  * `pmax` (_optional_): Maximum price of account (Inclusive)
  * `title` (_optional_): The word or words contained in the account title
  * `showStickyItems` (_optional_): If yes, API will return stickied accounts in results
- * Optional category paramters (_optional_): You can find it using "Inspect code element" in your browser
+ * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser
 
 
 ### GET `/market/user/:userId`
@@ -75,7 +75,7 @@ Parameters:
  * `pmax` (_optional_): Maximum price of account (Inclusive)
  * `title` (_optional_): The word or words contained in the account title
  * `showStickyItems` (_optional_): If yes, API will return stickied accounts in results
- * Optional category paramters (_optional_): You can find it using "Inspect code element" in your browser
+ * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser
 
 ### GET `/market/:itemId`
 Displays account information

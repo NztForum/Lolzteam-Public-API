@@ -1,7 +1,7 @@
 # Market API Documents
 
 ## Authorization
-You can read about authorization, scopes and grant types here - [Forum API documents](https://github.com/grisha2217/Lolzteam-Public-API/blob/master/docs/api.markdown) `docs/`
+You can read about authorization, scopes and grant types here - [Forum API documents](https://github.com/grisha2217/Lolzteam-Public-API/blob/master/docs/api.markdown) `docs/api`
 For using this api you need to get Access Token with **market** scope
 
 ## About Market API

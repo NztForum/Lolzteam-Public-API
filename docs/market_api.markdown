@@ -133,3 +133,16 @@ Confirm buy.
 Parameters:
 
  * N/A
+
+
+## Money transfers
+
+#### POST `/market/balance/transfer/`
+Reserves account for you. Reserve time - 300 seconds.
+
+Parameters:
+
+ * `user_id` (__required__) User id of receiver. If `user_id` specified, `username` is not required.
+ * `username` (__required__) Username of receiver. If `username` specified, `user_id` is not required.
+ * `amount` (__required__) Amount to send in your currency.
+ * `currency` (__required__) Using currency for amount.

@@ -138,7 +138,7 @@ Parameters:
 ## Money transfers
 
 #### POST `/market/balance/transfer/`
-Reserves account for you. Reserve time - 300 seconds.
+Send money to any user.
 
 Parameters:
 

@@ -8,7 +8,9 @@ For using this api you need to get Access Token with **market** scope
 Market API almost completely repeats WEB requests. Query parameters match. The only differences are the presence of PUT and DELETE methods (more on that below).
 For example, a request to book an account on the WEB looks like this: `lolz.guru/market/:itemId/reserve?price=:accountPrice`, and an API request looks like this: `api.lolz.guru/market/:itemId/reserve?price=accountPrice`.
 
-API Base URI is **api.lolz.guru/**
+## API Base URI is **api.lolz.guru/**
+
+## Rate limit is 20 request per minute.
 
 
 ### GET `/market`

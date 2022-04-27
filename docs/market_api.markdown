@@ -62,6 +62,7 @@ Displays list of your payments
  * `startDate` (_optional_): Start date of operation (RFC 3339 date format)
  * `endDate` (_optional_): End date of operation (RFC 3339 date format)
  * `wallet` (_optional_): Wallet, which used for money payots
+ * `comment` (_optional_): Comment for money transfers
  * `is_hold` (_optional_): Display hold operations
 
 ### GET `/market/user/:userId/orders`

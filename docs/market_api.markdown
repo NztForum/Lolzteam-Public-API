@@ -103,7 +103,7 @@ Parameters:
 
 ## Account purchasing
 You need to make 3 requests:
-**POST `/market/:itemId/reserve`**, **POST `/market/:itemId/check-account`** and **POST `/market/:itemId/confirm-buy`**
+POST `/market/:itemId/reserve`, POST `/market/:itemId/check-account` and POST `/market/:itemId/confirm-buy`
 
 #### POST `/market/:itemId/reserve`
 Reserves account for you. Reserve time - 300 seconds.
@@ -151,8 +151,32 @@ Parameters:
  * `hold_length_value` (_optional_) Hold length value (number).
  * `hold_length_option` (_optional_) Hold length option (string). Allowed values: hour, day, week, month, year
 
+
+
 #### Hold parameters examples
 E.g. you want to hold money transfer on 3 days. `hold_length_value` - will be '3', `hold_length_option` - will be 'days'.
 
 E.g. you want to hold money transfer on 12 hours.
 `hold_length_value` - will be '12', `hold_length_option` - will be 'hours'
+
+
+## Account publishing
+You need to make 2 requests:
+POST `/market/item/add` and POST `/market/:itemId/goods/check`
+
+#### POST `/market/item/add/`
+Adds account on the market. After this request an account will have `item_state = awaiting` (not displayed in search)
+
+Parameters:
+
+ * `title` (__required__) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
+ * `title_en` (_optional_) English title of account. If `title_en` specified and `title` is empty, `title` will be automatically translated to Russian language.
+ * `price` (__required__) Account price in your currency
+ * `currency` (__required__) Using currency
+ * `item_origin` (__required__) Item origin
+ * `description` (_optional_) Account public description
+ * `information` (_optional_) Account private information (visible for buyer only if purchased)
+ * `has_email_login_data` (_optional_) Set, if you have email login data
+ * `email_login_data` (_optional_) Email login data (login:pass format) 
+ * `email_type` (_optional_) Email type. Allowed values: native, autoreg
+ * `allow_ask_discount` (_optional_) Allow users to ask discount for this account

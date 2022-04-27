@@ -14,6 +14,13 @@ api.lolz.guru/
 ### Rate limit
 20 requests per minute
 
+### GET `/market/user`
+Displays info about your account
+
+Parameters:
+
+ * N/A
+
 
 ## Accounts list
 ### GET `/market`
@@ -34,13 +41,6 @@ Parameters:
  * `showStickyItems` (_optional_): If yes, API will return stickied accounts in results
  * `Optional category parameters` (_optional_): You can find it using "Inspect code element" in your browser
 
-
-### GET `/market/user`
-Displays info about your account
-
-Parameters:
-
- * N/A
 
 ### GET `/market/user/:userId/payments`
 Displays list of your payments

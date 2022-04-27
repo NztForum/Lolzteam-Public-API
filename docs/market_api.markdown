@@ -113,7 +113,7 @@ Parameters:
 
 ## Money transfers and payments list
 
-#### POST `/market/balance/transfer/`
+### POST `/market/balance/transfer/`
 Send money to any user.
 
 Parameters:
@@ -162,7 +162,7 @@ Displays list of your payments
 You need to make 2 requests:
 POST `/market/item/add` and POST `/market/:itemId/goods/check`
 
-#### POST `/market/item/add/`
+### POST `/market/item/add/`
 Adds account on the market. After this request an account will have `item_state = awaiting` (not displayed in search)
 
 Parameters:
@@ -180,7 +180,7 @@ Parameters:
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
 
 
-#### POST `/market/:itemId/goods/check`
+### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.
 
 Parameters:
@@ -189,19 +189,19 @@ Parameters:
 
 ## Account managing
 
-#### GET `/market/:itemId/email-code/`
+### GET `/market/:itemId/email-code/`
 Gets confirmation code or link.
 
 Parameters:
  * `email` (__required__) Account email
 
-#### POST `/market/:itemId/change-password`
+### POST `/market/:itemId/change-password`
 Changes password of account.
 
 Parameters:
  * `_cancel` (_optional_) Cancel change password recomendation. It will be helpful, if you don't want to change password and get login data
 
-#### PUT `/market/:itemId/edit/`
+### PUT `/market/:itemId/edit/`
 Edits any details of account.
 
 Parameters:
@@ -219,14 +219,14 @@ Parameters:
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
 
 
-#### POST `/market/:itemId/tag/`
+### POST `/market/:itemId/tag/`
 Adds tag for the account
 
 Parameters:
  * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/user`)
 
 
-#### DELETE `/market/:itemId/tag/`
+### DELETE `/market/:itemId/tag/`
 Deletes tag for the account
 
 Parameters:

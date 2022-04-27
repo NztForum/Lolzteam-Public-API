@@ -203,9 +203,6 @@ Changes password of account.
 Parameters:
  * `_cancel` (_optional_) Cancel change password recomendation. It will be helpful, if you don't want to change password and get login data
 
-Parameters:
- * `email` (__required__) Account email
-
 #### POST `/market/:itemId/edit/`
 Edits any details of account.
 

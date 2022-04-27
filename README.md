@@ -2,4 +2,5 @@
 
 This repository includes code for:
 
- * [Documents](https://github.com/grisha2217/Lolzteam-Public-API/blob/master/docs/api.markdown) `docs/`
+ * [Forum API documents](https://github.com/grisha2217/Lolzteam-Public-API/blob/master/docs/api.markdown) `docs/`
+ * [Market API documents](https://github.com/grisha2217/Lolzteam-Public-API/blob/master/market_docs/api.markdown) `market_docs/`

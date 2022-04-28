@@ -229,5 +229,5 @@ Parameters:
 
 
 ## Market settings
-### GET `/account/market`
+### GET `/account/market` (Disabled at now)
 Gets your account settings of market: 

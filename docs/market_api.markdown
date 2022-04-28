@@ -121,11 +121,11 @@ Parameters:
  * `user_id` (__required__) User id of receiver. If `user_id` specified, `username` is not required.
  * `username` (__required__) Username of receiver. If `username` specified, `user_id` is not required.
  * `amount` (__required__) Amount to send in your currency.
- * `currency` (__required__) Using currency for amount.
+ * `currency` (__required__) Using currency for amount. Allowed values: `cny` `usd` `rub` `eur` `uah` `kzt` `byn` `gbp`
  * `secret_answer` (__required__) Secret answer of your account
  * `transfer_hold` (_optional_) Hold transfer or not.
  * `hold_length_value` (_optional_) Hold length value (number).
- * `hold_length_option` (_optional_) Hold length option (string). Allowed values: hour, day, week, month, year
+ * `hold_length_option` (_optional_) Hold length option (string). Allowed values: `hour` `day` `week` `month` `year`
 
 #### Hold parameters examples
 E.g. you want to hold money transfer on 3 days. `hold_length_value` - will be '3', `hold_length_option` - will be 'days'.
@@ -170,13 +170,13 @@ Parameters:
  * `title` (__required__) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
  * `title_en` (_optional_) English title of account. If `title_en` specified and `title` is empty, `title` will be automatically translated to Russian language.
  * `price` (__required__) Account price in your currency
- * `currency` (__required__) Using currency
+ * `currency` (__required__) Using currency. Allowed values: `cny` `usd` `rub` `eur` `uah` `kzt` `byn` `gbp`
  * `item_origin` (__required__) Item origin
  * `description` (_optional_) Account public description
  * `information` (_optional_) Account private information (visible for buyer only if purchased)
  * `has_email_login_data` (_optional_) Set, if you have email login data
  * `email_login_data` (_optional_) Email login data (login:pass format) 
- * `email_type` (_optional_) Email type. Allowed values: native, autoreg
+ * `email_type` (_optional_) Email type. Allowed values: `native` `autoreg`
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
 
 
@@ -208,12 +208,12 @@ Parameters:
 * `key` (_optional) Key to edit (key list you can see below). E.g. price.
 * `value` (_optional) Value to edit
 * `key_values` (_optional_) Key-values to edit (Array). E.g. key_values[title]=Account&key_values[price]=100
-* `currency` (__required__) Currency of amount. Required if you are trying to change `amount` field.
+* `currency` (__required__) Currency of amount. Required if you are trying to change `amount` field. Allowed values: `cny` `usd` `rub` `eur` `uah` `kzt` `byn` `gbp`
 
 #### Key list:
  * `title` (_optional_) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
  * `title_en` (_optional_) English title of account. If `title_en` specified and `title` is empty, `title` will be automatically translated to Russian language.
- * `price` (_optional_) Account price in your currency
+ * `price` (_optional_) Account price in your currency. Allowed values: `cny` `usd` `rub` `eur` `uah` `kzt` `byn` `gbp`
  * `item_origin` (_optional_) Item origin
  * `description` (_optional_) Account public description
  * `information` (_optional_) Account private information (visible for buyer only if purchased)

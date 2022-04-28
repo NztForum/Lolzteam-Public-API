@@ -170,8 +170,8 @@ Check account on validity. If account is valid, account will be published on the
 
 Parameters:
  * `login` (_optional_) Account login (or email)
- * `password` (_optional) Account password
- * `login_password` (_optional) Account login data format login:password
+ * `password` (_optional_) Account password
+ * `login_password` (_optional_) Account login data format login:password
  * `close_item` (_optional_) If set, the item will be closed `item_state = closed`
 
 ## Account managing

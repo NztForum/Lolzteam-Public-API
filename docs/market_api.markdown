@@ -14,13 +14,6 @@ api.lolz.guru/
 ### Rate limit
 20 requests per minute
 
-### GET `/market/user`
-Displays info about your account
-
-Parameters:
-
- * N/A
-
 
 ## Accounts list
 ### GET `/market`
@@ -38,7 +31,7 @@ Parameters:
  * `pmin` (_optional_): Minimal price of account (Inclusive)
  * `pmax` (_optional_): Maximum price of account (Inclusive)
  * `title` (_optional_): The word or words contained in the account title
- * `showStickyItems` (_optional_): If yes, API will return stickied accounts in results
+ * `parse_sticky_items` (_optional_): If yes, API will return stickied accounts in results
  * `Optional category parameters` (_optional_): You can find it using "Inspect code element" in your browser
 
 ### GET `/market/user/:userId/orders`
@@ -159,23 +152,27 @@ Parameters:
  * `title` (__required__) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
  * `title_en` (_optional_) English title of account. If `title_en` specified and `title` is empty, `title` will be automatically translated to Russian language.
  * `price` (__required__) Account price in your currency
+ * `category_id` (__required__) Category id
  * `currency` (__required__) Using currency. Allowed values: `cny` `usd` `rub` `eur` `uah` `kzt` `byn` `gbp`
  * `item_origin` (__required__) Item origin
+ * `extended_guarantee` (__required__) Guarantee type. Allowed values: `-1` - 12 hours, `0` - 24 hours, `1` - 3 days.
  * `description` (_optional_) Account public description
  * `information` (_optional_) Account private information (visible for buyer only if purchased)
- * `has_email_login_data` (_optional_) Set, if you have email login data
+ * `has_email_login_data` (_optional_) Set boolean, if you have email login data
  * `email_login_data` (_optional_) Email login data (login:pass format) 
  * `email_type` (_optional_) Email type. Allowed values: `native` `autoreg`
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
- * `proxy_id` (_optional_) Using proxy id for account checking. See [Market Settings](#market-settings) to get or edit proxy list
+ * `proxy_id` (_optional_) Using proxy id for account checking. See [Proxy Settings](#proxy-settings) to get or edit proxy list
 
 
 ### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.
 
 Parameters:
+ * `login` (_optional_) Account login (or email)
+ * `password` (_optional) Account password
+ * `login_password` (_optional) Account login data format login:password
  * `close_item` (_optional_) If set, the item will be closed `item_state = closed`
-
 
 ## Account managing
 
@@ -207,7 +204,7 @@ Parameters:
  * `item_origin` (_optional_) Item origin
  * `description` (_optional_) Account public description
  * `information` (_optional_) Account private information (visible for buyer only if purchased)
- * `has_email_login_data` (_optional_) Set, if you have email login data
+ * `has_email_login_data` (_optional_) Set boolean, if you have email login data
  * `email_login_data` (_optional_) Email login data (login:pass format) 
  * `email_type` (_optional_) Email type. Allowed values: `native`, `autoreg`
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
@@ -218,7 +215,7 @@ Parameters:
 Adds tag for the account
 
 Parameters:
- * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/user`)
+ * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/me`)
 
 
 ### DELETE `/market/:itemId/tag/`
@@ -229,5 +226,49 @@ Parameters:
 
 
 ## Market settings
-### GET `/account/market` (Disabled at now)
-Gets your account settings of market: 
+
+### GET `/market/me`
+Displays info about your account
+
+Parameters:
+
+ * N/A
+
+### PUT `/market/me`
+Change settings about your account on the market
+
+Parameters:
+
+ * `disable_steam_guard` (_optional_) (Boolean) Disable Steam Guard on account purchase moment
+ * `user_allow_ask_discount` (_optional_) (Boolean) Allow users ask discount for your accounts
+ * `max_discount_percent` (_optional_) (UInt) Maximum discount percents for your accounts
+ * `allow_accept_accounts` (_optional_) (String) Usernames who can transfer market accounts to you. Separate values with a comma.
+ * `hide_favourites` (_optional_) (Boolean) Hide your profile info when you add an account to favorites
+
+
+### Proxy settings
+#### GET `market/proxy`
+Gets your proxy list
+
+Parameters:
+
+ * N/A
+
+#### POST `market/proxy`
+Add one proxy or proxy list
+
+__To add one proxy use this parameters__:
+ * `proxy_ip` (__required__) Proxy ip or host
+ * `proxy_port` (__required__) Proxy port
+ * `proxy_user` (_optional_) Proxy username
+ * `proxy_pass` (_optional_) Proxy password
+
+__To add proxy list use this parameters__:
+* `proxy_row` (__required__) Proxy list in String format ip:port:user:pass. Each proxy must be start with new line (use \r\n separator)
+
+#### DELETE `market/proxy`
+Delete one or all proxies
+
+Parameters:
+ * `proxy_id` (_optional_) Proxy id
+ * `delete_all` (_optional_) Set boolean if you want to delete all proxy

@@ -167,6 +167,7 @@ Parameters:
  * `email_login_data` (_optional_) Email login data (login:pass format) 
  * `email_type` (_optional_) Email type. Allowed values: `native` `autoreg`
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
+ * `proxy_id` (_optional_) Using proxy id for account checking. See [Market Settings](#market-settings) to get or edit proxy list
 
 
 ### POST `/market/:itemId/goods/check`
@@ -210,6 +211,7 @@ Parameters:
  * `email_login_data` (_optional_) Email login data (login:pass format) 
  * `email_type` (_optional_) Email type. Allowed values: `native`, `autoreg`
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
+ * `proxy_id` (_optional_) Using proxy id for account checking. See [GET /account/market](#account/market) to get or edit proxy list
 
 
 ### POST `/market/:itemId/tag/`
@@ -224,3 +226,8 @@ Deletes tag for the account
 
 Parameters:
  * `tag_id` (__required__) Tag id
+
+
+## Market settings
+### GET `/account/market`
+Gets your account settings of market: 

@@ -266,6 +266,7 @@ __To add one proxy use this parameters__:
 __To add proxy list use this parameters__:
 * `proxy_row` (__required__) Proxy list in String format ip:port:user:pass. Each proxy must be start with new line (use \r\n separator)
 
+
 #### DELETE `market/proxy`
 Delete one or all proxies
 

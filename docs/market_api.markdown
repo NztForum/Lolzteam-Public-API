@@ -165,6 +165,16 @@ Parameters:
  * `proxy_id` (_optional_) Using proxy id for account checking. See [Proxy Settings](#proxy-settings) to get or edit proxy list
 
 
+#### Item origin
+Account origin. Where did you get it from.
+* `brute` - Account received using Bruteforce
+* `fishing` - Account received from fishing page
+* `stealer` - Account received from stealer logs
+* `autoreg` - Account is automatically registered by a tool
+* `personal` - Account is yours. You created it yourself.
+* `resale` - Account received from another seller
+* `retrive` - Account is recovered by email or phone (only for VKontakte category)
+
 ### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.
 
@@ -174,7 +184,13 @@ Parameters:
  * `login_password` (_optional_) Account login data format login:password
  * `close_item` (_optional_) If set, the item will be closed `item_state = closed`
 
-## Account managing
+### GET `/market/сategory`
+Display category list
+
+Parameters:
+ * `top_queries` (_optional_) (Boolean) Display top queries for per category
+
+## Accounts managing
 
 ### GET `/market/:itemId/email-code/`
 Gets confirmation code or link.
@@ -210,6 +226,11 @@ Parameters:
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
  * `proxy_id` (_optional_) Using proxy id for account checking. See [GET /account/market](#account/market) to get or edit proxy list
 
+### DELETE `/market/:itemId/delete/`
+
+Parameters:
+* `reason` (__requred__) Delete reason
+
 
 ### POST `/market/:itemId/tag/`
 Adds tag for the account
@@ -225,17 +246,17 @@ Parameters:
  * `tag_id` (__required__) Tag id
 
 
-## Market settings
+## Market profile settings
 
 ### GET `/market/me`
-Displays info about your account
+Displays info about your profile
 
 Parameters:
 
  * N/A
 
 ### PUT `/market/me`
-Change settings about your account on the market
+Change settings about your profile on the market
 
 Parameters:
 
@@ -255,9 +276,9 @@ Parameters:
  * N/A
 
 #### POST `market/proxy`
-Add one proxy or proxy list
+Add single proxy or proxy list
 
-__To add one proxy use this parameters__:
+__To add single proxy use this parameters__:
  * `proxy_ip` (__required__) Proxy ip or host
  * `proxy_port` (__required__) Proxy port
  * `proxy_user` (_optional_) Proxy username
@@ -268,7 +289,7 @@ __To add proxy list use this parameters__:
 
 
 #### DELETE `market/proxy`
-Delete one or all proxies
+Delete single or all proxies
 
 Parameters:
  * `proxy_id` (_optional_) Proxy id

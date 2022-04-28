@@ -268,14 +268,14 @@ Parameters:
 
 
 ### Proxy settings
-#### GET `market/proxy`
+#### GET `/market/proxy`
 Gets your proxy list
 
 Parameters:
 
  * N/A
 
-#### POST `market/proxy`
+#### POST `/market/proxy`
 Add single proxy or proxy list
 
 __To add single proxy use this parameters__:
@@ -288,7 +288,7 @@ __To add proxy list use this parameters__:
 * `proxy_row` (__required__) Proxy list in String format ip:port:user:pass. Each proxy must be start with new line (use \r\n separator)
 
 
-#### DELETE `market/proxy`
+#### DELETE `/market/proxy`
 Delete single or all proxies
 
 Parameters:

@@ -135,18 +135,7 @@ E.g. you want to hold money transfer on 12 hours.
 
 ### GET `/market/user/:userId/payments`
 Displays list of your payments
- * `type` (_optional_): Type of operation
- **Allowed operation types:**
-    income, 
-    cost,
-    refilled_balance,
-		withdrawal_balance,
-		paid_item,
-		sold_item,
-		money_transfer,
-		receiving_money,
-		internal_purchase,
-		claim_hold
+ * `type` (_optional_): Type of operation. Allowed operation types: `income` `cost` `refilled_balance` `withdrawal_balance` `paid_item` `sold_item` `money_transfer` `receiving_money` `internal_purchase` `claim_hold`
  * `pmin` (_optional_): Minimal price of operation (Inclusive)
  * `pmax` (_optional_): Maximum price of operation (Inclusive)
  * `receiver` (_optional_): Username of user, which receive money from you
@@ -219,7 +208,7 @@ Parameters:
  * `information` (_optional_) Account private information (visible for buyer only if purchased)
  * `has_email_login_data` (_optional_) Set, if you have email login data
  * `email_login_data` (_optional_) Email login data (login:pass format) 
- * `email_type` (_optional_) Email type. Allowed values: native, autoreg
+ * `email_type` (_optional_) Email type. Allowed values: `native`, `autoreg`
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
 
 

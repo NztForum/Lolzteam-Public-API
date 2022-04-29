@@ -116,7 +116,7 @@ Parameters:
  * `amount` (__required__) Amount to send in your currency.
  * `currency` (__required__) Using currency for amount. Allowed values: `cny` `usd` `rub` `eur` `uah` `kzt` `byn` `gbp`
  * `secret_answer` (__required__) Secret answer of your account
-* `comment` (_optional_) (Boolean) Transfer comment. Maximum 255 characters
+* `comment` (_optional_) Transfer comment. Maximum 255 characters
  * `transfer_hold` (_optional_) (Boolean) Hold transfer or not.
  * `hold_length_value` (_optional_) Hold length value (number).
  * `hold_length_option` (_optional_) Hold length option (string). Allowed values: `hour` `day` `week` `month` `year`

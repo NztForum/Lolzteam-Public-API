@@ -201,7 +201,7 @@ Account origin. Where did you get it from.
  * `16` - World Of Tanks Blitz
  * `15` - Supercell
  * `17` - Genshin Impact
- * `18` - Escape From Tarkov
+ * `18` - Tarkov
  * `19` - VPN
  * `20` - TikTok
  * `22` - Discord

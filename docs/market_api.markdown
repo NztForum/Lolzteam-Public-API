@@ -29,25 +29,6 @@ Parameters:
  * N/A
 
 
-### Category list:
- * `1` - Steam
- * `2` - VK
- * `3` - Origin
- * `4` - Warface
- * `5` - Uplay
- * `7` - Social Club
- * `9` - Fortnite
- * `12` - Epic Games
- * `10` - Instagram
- * `11` - BattleNet
- * `14` - World Of Tanks
- * `16` - World Of Tanks Blitz
- * `15` - Supercell
- * `17` - Genshin Impact
- * `18` - Tarkov
- * `19` - VPN
- * `20` - TikTok
- * `22` - Discord
 
 ### GET `/market/:categoryName`
 Displays a list of accounts in a specific category according to your parameters
@@ -59,6 +40,26 @@ Parameters:
  * `title` (_optional_): The word or words contained in the account title
  * `parse_sticky_items` (_optional_): If yes, API will return stickied accounts in results
  * `Optional category parameters` (_optional_): You can find it using "Inspect code element" in your browser
+
+### Category id-names list:
+ * `1` `steam` - Steam
+ * `2` `vkontakte` - VK
+ * `3` `origin` - Origin
+ * `4` `warface` - Warface
+ * `5` `uplay` - Uplay
+ * `7` `socialclub` - Social Club
+ * `9` `fortnite` - Fortnite
+ * `12` `epic-games` - Epic Games
+ * `10` `instagram - Instagram
+ * `11` - Battle.net
+ * `14` `world-of-tanks` - World Of Tanks
+ * `16` `wot-blitz` - World Of Tanks Blitz
+ * `15` `supercell` - Supercell
+ * `17` `genshin-impact` - Genshin Impact
+ * `18` `escape-from-tarkov` - Escape From Tarkov
+ * `19` `vpn` - VPN
+ * `20` `tiktok` - TikTok
+ * `22` `discord` - Discord
 
 ### GET `/market/user/:userId/orders`
 Displays a list of purchased accounts

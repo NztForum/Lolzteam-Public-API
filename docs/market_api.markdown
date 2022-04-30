@@ -164,8 +164,8 @@ Parameters:
  * `extended_guarantee` (__required__) Guarantee type. Allowed values: `-1` - 12 hours, `0` - 24 hours, `1` - 3 days.
  * `description` (_optional_) Account public description
  * `information` (_optional_) Account private information (visible for buyer only if purchased)
- * `has_email_login_data` (_optional_) Set boolean, if you have email login data
- * `email_login_data` (_optional_) Email login data (login:pass format) 
+ * `has_email_login_data` __Required__ if a category is one of list of __Required email login data categories__ (see below)
+ * `email_login_data` __Required___ if a category is one of list of __Required email login data categories__ (see below) . Email login data (login:pass format) 
  * `email_type` (_optional_) Email type. Allowed values: `native` `autoreg`
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
  * `proxy_id` (_optional_) Using proxy id for account checking. See [Proxy Settings](#proxy-settings) to get or edit proxy list
@@ -180,6 +180,31 @@ Account origin. Where did you get it from.
 * `personal` - Account is yours. You created it yourself.
 * `resale` - Account received from another seller
 * `retrive` - Account is recovered by email or phone (only for VKontakte category)
+
+#### Required email login data categories
+- Fortnite (id 9)
+- Epic games (id 12)
+- Tarkov (id 18)
+
+### Category list:
+ * `1` - Steam
+ * `2` - VK
+ * `3` - Origin
+ * `4` - Warface
+ * `5` - Uplay
+ * `7` - Social Club
+ * `9` - Fortnite
+ * `12` - Epic Games
+ * `10` - Instagram
+ * `11` - BattleNet
+ * `14` - World Of Tanks
+ * `16` - World Of Tanks Blitz
+ * `15` - Supercell
+ * `17` - Genshin Impact
+ * `18` - Escape From Tarkov
+ * `19` - VPN
+ * `20` - TikTok
+ * `22` - Discord
 
 ### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.

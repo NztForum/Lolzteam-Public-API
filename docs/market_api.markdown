@@ -50,8 +50,8 @@ Parameters:
  * `7` `socialclub` - Social Club
  * `9` `fortnite` - Fortnite
  * `12` `epic-games` - Epic Games
- * `10` `instagram - Instagram
- * `11` - Battle.net
+ * `10` `instagram` - Instagram
+ * `11` `battlenet` - Battle.net
  * `14` `world-of-tanks` - World Of Tanks
  * `16` `wot-blitz` - World Of Tanks Blitz
  * `15` `supercell` - Supercell
@@ -206,7 +206,7 @@ Account origin. Where did you get it from.
 #### Required email login data categories
 - Fortnite (id 9)
 - Epic games (id 12)
-- Tarkov (id 18)
+- Escape from Tarkov (id 18)
 
 ### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.

@@ -186,7 +186,7 @@ Account origin. Where did you get it from.
 - Epic games (id 12)
 - Tarkov (id 18)
 
-### Category list:
+#### Category list:
  * `1` - Steam
  * `2` - VK
  * `3` - Origin

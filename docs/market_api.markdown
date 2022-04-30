@@ -228,6 +228,7 @@ Parameters:
  * `proxy_id` (_optional_) Using proxy id for account checking. See [GET /account/market](#account/market) to get or edit proxy list
 
 ### DELETE `/market/:itemId/delete/`
+Deletes your account from public search. Deletetion type is soft. You can restore account after deletetion if you want. 
 
 Parameters:
 * `reason` (__requred__) Delete reason

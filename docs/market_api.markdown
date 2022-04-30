@@ -28,6 +28,27 @@ Parameters:
 
  * N/A
 
+
+### Category list:
+ * `1` - Steam
+ * `2` - VK
+ * `3` - Origin
+ * `4` - Warface
+ * `5` - Uplay
+ * `7` - Social Club
+ * `9` - Fortnite
+ * `12` - Epic Games
+ * `10` - Instagram
+ * `11` - BattleNet
+ * `14` - World Of Tanks
+ * `16` - World Of Tanks Blitz
+ * `15` - Supercell
+ * `17` - Genshin Impact
+ * `18` - Tarkov
+ * `19` - VPN
+ * `20` - TikTok
+ * `22` - Discord
+
 ### GET `/market/:categoryName`
 Displays a list of accounts in a specific category according to your parameters
 
@@ -185,26 +206,6 @@ Account origin. Where did you get it from.
 - Fortnite (id 9)
 - Epic games (id 12)
 - Tarkov (id 18)
-
-#### Category list:
- * `1` - Steam
- * `2` - VK
- * `3` - Origin
- * `4` - Warface
- * `5` - Uplay
- * `7` - Social Club
- * `9` - Fortnite
- * `12` - Epic Games
- * `10` - Instagram
- * `11` - BattleNet
- * `14` - World Of Tanks
- * `16` - World Of Tanks Blitz
- * `15` - Supercell
- * `17` - Genshin Impact
- * `18` - Tarkov
- * `19` - VPN
- * `20` - TikTok
- * `22` - Discord
 
 ### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.

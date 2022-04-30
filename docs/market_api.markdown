@@ -184,6 +184,7 @@ Parameters:
  * `password` (_optional_) Account password
  * `login_password` (_optional_) Account login data format login:password
  * `close_item` (_optional_) If set, the item will be closed `item_state = closed`
+ * `extra` (_optional_) (Array) Extra params for account checking. E.g. you need to put cookies to `extra[cookies]` if you want to upload Fortnite/Epic Games account
 
 ### GET `/market/сategory`
 Display category list

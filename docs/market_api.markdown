@@ -6,8 +6,8 @@ For using this api you need to get Access Token with **read+post+market** scope
 
 
 ## API free libraries
-- [Python](https://github.com/NztForum/node-lzt) 
-- [Node.js](https://github.com/xALEGORx/LolzApi/)
+- [Node.js](https://github.com/NztForum/node-lzt) 
+- [Python](https://github.com/xALEGORx/LolzApi/)
 
 ## About Market API
 Market API almost completely repeats WEB requests. Query parameters match. The only differences are the presence of PUT and DELETE methods (more on that below).
@@ -171,6 +171,7 @@ Displays list of your payments
 ## Account publishing
 You need to make 2 requests:
 POST `/market/item/add` and POST `/market/:itemId/goods/check`
+For categories, which required temporary email (Steam, Social Club) you need to make GET `/market/:itemId/goods/add` to get temporary email 
 
 ### POST `/market/item/add/`
 Adds account on the market. After this request an account will have `item_state = awaiting` (not displayed in search)
@@ -208,6 +209,13 @@ Account origin. Where did you get it from.
 - Epic games (id 12)
 - Escape from Tarkov (id 18)
 
+
+### GET `market/:itemId/goods/add`
+Get info about not published item. For categories, which required temporary email (Steam, Social Club), you will get temporary email in response.
+
+Parameters:
+ * `resell_item_id` (_optional_) Put item id, if you trying to resell item. This is useful to pass temporary email from reselling item to new item. You will get same temporary email from reselling account.
+
 ### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.
 
@@ -217,6 +225,7 @@ Parameters:
  * `login_password` (_optional_) Account login data format login:password
  * `close_item` (_optional_) If set, the item will be closed `item_state = closed`
  * `extra` (_optional_) (Array) Extra params for account checking. E.g. you need to put cookies to `extra[cookies]` if you want to upload Fortnite/Epic Games account
+ * `resell_item_id` Put if you trying to resell an account.
 
 ### GET `/market/сategory`
 Display category list

@@ -214,7 +214,7 @@ Account origin. Where did you get it from.
 Get info about not published item. For categories, which required temporary email (Steam, Social Club), you will get temporary email in response.
 
 Parameters:
- * `resell_item_id` (_optional_) Put item id, if you trying to resell item. This is useful to pass temporary email from reselling item to new item. You will get same temporary email from reselling account.
+ * `resell_item_id` (_optional_) Put item id, if you are trying to resell item. This is useful to pass temporary email from reselling item to new item. You will get same temporary email from reselling account.
 
 ### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.
@@ -225,7 +225,7 @@ Parameters:
  * `login_password` (_optional_) Account login data format login:password
  * `close_item` (_optional_) If set, the item will be closed `item_state = closed`
  * `extra` (_optional_) (Array) Extra params for account checking. E.g. you need to put cookies to `extra[cookies]` if you want to upload Fortnite/Epic Games account
- * `resell_item_id` Put if you trying to resell an account.
+ * `resell_item_id` Put if you are trying to resell an account.
 
 ### GET `/market/сategory`
 Display category list

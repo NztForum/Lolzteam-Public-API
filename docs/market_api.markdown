@@ -289,6 +289,21 @@ Deletes tag for the account
 Parameters:
  * `tag_id` (__required__) Tag id
 
+### POST `/market/:itemId/bump/`
+Bumps account in the search
+
+### POST `/market/:itemId/star/`
+Adds account from favourites
+
+Parameters:
+ * N/A
+
+### DELETE `/market/:itemId/star/`
+Deletes account from favourites
+
+Parameters:
+ * N/A
+
 
 ## Market profile settings
 

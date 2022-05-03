@@ -292,6 +292,9 @@ Parameters:
 ### POST `/market/:itemId/bump/`
 Bumps account in the search
 
+Parameters:
+ * N/A
+
 ### POST `/market/:itemId/star/`
 Adds account from favourites
 

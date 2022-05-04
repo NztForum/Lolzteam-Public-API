@@ -307,6 +307,18 @@ Deletes account from favourites
 Parameters:
  * N/A
 
+### POST `/market/:itemId/stick/`
+Stick account in the top of search
+
+Parameters:
+ * N/A
+
+### DELETE `/market/:itemId/stick/`
+Unstick account of the top of search
+
+Parameters:
+ * N/A
+
 
 ## Market profile settings
 

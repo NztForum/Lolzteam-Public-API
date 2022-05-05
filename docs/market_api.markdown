@@ -241,6 +241,13 @@ Gets confirmation code or link.
 Parameters:
  * `email` (__required__) Account email
 
+
+### POST `/market/:itemId/refuse-guarantee`
+Cancel guarantee of account. It can be useful for account reselling.
+
+Parameters:
+ * N/A
+
 ### POST `/market/:itemId/change-password`
 Changes password of account.
 

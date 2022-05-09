@@ -14,7 +14,7 @@ Market API almost completely repeats WEB requests. Query parameters match. The o
 For example, a request to book an account on the WEB looks like this: `lolz.guru/market/:itemId/reserve?price=:accountPrice`, and an API request looks like this: `api.lolz.guru/market/:itemId/reserve?price=accountPrice`.
 
 ### API Base URI
-api.lolz.guru/
+`api.lolz.guru/`
 
 ### Rate limit
 20 requests per minute
@@ -39,7 +39,7 @@ Parameters:
  * `pmax` (_optional_): Maximum price of account (Inclusive)
  * `title` (_optional_): The word or words contained in the account title
  * `parse_sticky_items` (_optional_): If yes, API will return stickied accounts in results
- * `Optional category parameters` (_optional_): You can find it using "Inspect code element" in your browser
+ * `Optional category parameters` (_optional_): You can find it using "Inspect code element" in your browser [or in WEB url](#about-market-api)
 
 ### Category id-names list:
  * `1` `steam` - Steam
@@ -76,7 +76,7 @@ Parameters:
  * `pmax` (_optional_): Maximum price of account (Inclusive)
  * `title` (_optional_): The word or words contained in the account title
  * `showStickyItems` (_optional_): If yes, API will return stickied accounts in results
- * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser
+ * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser [or in WEB url](#about-market-api)
 
 ### GET `/market/fave`
 Displays a list of favourites accounts
@@ -99,7 +99,7 @@ Parameters:
 
 ## Account purchasing
 You need to make 3 requests:
-POST `/market/:itemId/reserve`, POST `/market/:itemId/check-account` and POST `/market/:itemId/confirm-buy`
+POST [`/market/:itemId/reserve`](#post-marketitemidreserve), POST [`/market/:itemId/check-account`](#post-marketitemidcheck-account) and POST [`/market/:itemId/confirm-buy`](#post-marketitemidconfirm-buy)
 
 #### POST `/market/:itemId/reserve`
 Reserves account for you. Reserve time - 300 seconds.
@@ -210,7 +210,7 @@ Account origin. Where did you get it from.
 - Escape from Tarkov (id 18)
 
 
-### GET `market/:itemId/goods/add`
+### GET `/market/:itemId/goods/add`
 Get info about not published item. For categories, which required temporary email (Steam, Social Club), you will get temporary email in response.
 
 Parameters:

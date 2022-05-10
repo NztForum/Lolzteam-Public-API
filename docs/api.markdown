@@ -9,7 +9,10 @@ The API implements the OAuth 2.0 Authorization Framework ([RFC 6749](http://tool
  * `usercp`
  * `conversate`
  * `admincp`
- * `market`
+ * `market` Read this - [`/docs/market_api`](https://github.com/grisha2217/Lolzteam-Public-API/blob/master/docs/market_api.markdown)
+
+### API Base URI
+`api.lolz.guru/`
 
 ### Supported grant types
  * Authorization code
@@ -2162,7 +2165,7 @@ Required scopes:
  * `read`
  * `conversate`
 
-### POST `/conversations`
+### POST `/conversations` [Disabled]
 Create a new conversation.
 
     {

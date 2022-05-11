@@ -1252,6 +1252,28 @@ Required scopes:
 
  * `read`
 
+## Post comments
+
+### GET `/posts/:postId/comments`
+List of post comments in a thread (with pagination).
+
+Parameters:
+
+ * `before` (_optional_) The time in milliseconds before last comment date
+
+### POST `/posts/:postId/comments`
+Create a new post comment.
+
+Parameters:
+
+ * `post_id` (__required__): id of the target post.
+ * `comment_body` (__required__): content of the new post.
+
+Required scopes:
+
+ * `post`
+
+
 ## Content Tagging
 
 ### GET `/tags`

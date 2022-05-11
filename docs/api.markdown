@@ -1259,7 +1259,7 @@ List of post comments in a thread (with pagination).
 
 Parameters:
 
- * `before` (_optional_) The time in milliseconds before last comment date
+ * `before` (_optional_) The time in milliseconds (e.g. 1652177794083) before last comment date
 
 ### POST `/posts/:postId/comments`
 Create a new post comment.

@@ -1266,7 +1266,6 @@ Create a new post comment.
 
 Parameters:
 
- * `post_id` (__required__): id of the target post.
  * `comment_body` (__required__): content of the new post.
 
 Required scopes:

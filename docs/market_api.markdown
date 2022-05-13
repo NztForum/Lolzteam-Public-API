@@ -264,7 +264,7 @@ Parameters:
 * `key` (_optional) Key to edit (key list you can see below). E.g. price.
 * `value` (_optional) Value to edit
 * `key_values` (_optional_) Key-values to edit (Array). E.g. key_values[title]=Account&key_values[price]=100
-* `currency` (__required__) Currency of amount. Required if you are trying to change `amount` field. Allowed values: `cny` `usd` `rub` `eur` `uah` `kzt` `byn` `gbp`
+* `currency` (__required__) Currency of account price. Required if you are trying to change `price` field. Allowed values: `cny` `usd` `rub` `eur` `uah` `kzt` `byn` `gbp`
 
 #### Key list:
  * `title` (_optional_) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.

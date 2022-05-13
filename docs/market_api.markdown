@@ -61,21 +61,24 @@ Parameters:
  * `20` `tiktok` - TikTok
  * `22` `discord` - Discord
 
-### GET `/market/user/:userId/orders`
-Displays a list of purchased accounts
+### GET `/market/user/:userId/items/`
+Displays a list of owned accounts
 
 Parameters:
-
- * N/A
-
-### GET `/market/user/:userId/orders/:categoryName`
-Displays a list of purchased accounts
-
-Parameters:
+ * `category_id` (_optional_): Accounts category
  * `pmin` (_optional_): Minimal price of account (Inclusive)
  * `pmax` (_optional_): Maximum price of account (Inclusive)
  * `title` (_optional_): The word or words contained in the account title
- * `showStickyItems` (_optional_): If yes, API will return stickied accounts in results
+ * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser [or in WEB url](#about-market-api)
+
+### GET `/market/user/:userId/orders/`
+Displays a list of purchased accounts
+
+Parameters:
+ * `category_id` (_optional_): Accounts category
+ * `pmin` (_optional_): Minimal price of account (Inclusive)
+ * `pmax` (_optional_): Maximum price of account (Inclusive)
+ * `title` (_optional_): The word or words contained in the account title
  * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser [or in WEB url](#about-market-api)
 
 ### GET `/market/fave`

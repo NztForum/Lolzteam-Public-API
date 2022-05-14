@@ -329,6 +329,12 @@ Unstick account of the top of search
 Parameters:
  * N/A
 
+### POST `/market/:itemId/change-owner`
+Change of account owner
+
+Parameters:
+ * `username` (__required__) The username of the new account owner
+ * `secret_answer` (__required__) Secret answer of your account
 
 ## Market profile settings
 

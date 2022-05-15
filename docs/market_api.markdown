@@ -279,51 +279,51 @@ Parameters:
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
  * `proxy_id` (_optional_) Using proxy id for account checking. See [GET /account/market](#account/market) to get or edit proxy list
 
-### DELETE `/market/:itemId/delete/`
+### DELETE `/market/:itemId`
 Deletes your account from public search. Deletetion type is soft. You can restore account after deletetion if you want. 
 
 Parameters:
 * `reason` (__requred__) Delete reason
 
 
-### POST `/market/:itemId/tag/`
+### POST `/market/:itemId/tag`
 Adds tag for the account
 
 Parameters:
  * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/me`)
 
 
-### DELETE `/market/:itemId/tag/`
+### DELETE `/market/:itemId/tag`
 Deletes tag for the account
 
 Parameters:
  * `tag_id` (__required__) Tag id
 
-### POST `/market/:itemId/bump/`
+### POST `/market/:itemId/bump`
 Bumps account in the search
 
 Parameters:
  * N/A
 
-### POST `/market/:itemId/star/`
+### POST `/market/:itemId/star`
 Adds account from favourites
 
 Parameters:
  * N/A
 
-### DELETE `/market/:itemId/star/`
+### DELETE `/market/:itemId/star`
 Deletes account from favourites
 
 Parameters:
  * N/A
 
-### POST `/market/:itemId/stick/`
+### POST `/market/:itemId/stick`
 Stick account in the top of search
 
 Parameters:
  * N/A
 
-### DELETE `/market/:itemId/stick/`
+### DELETE `/market/:itemId/stick`
 Unstick account of the top of search
 
 Parameters:

@@ -6,9 +6,9 @@ For using this api you need to get Access Token with **read+post+market** scope
 
 
 ## API free libraries
-[Node.js](https://github.com/NztForum/node-lzt) 
-[Python](https://github.com/xALEGORx/LolzApi/)
-[C#](https://github.com/fanidamn/LolzMarketAPI)
+- [Node.js](https://github.com/NztForum/node-lzt) 
+- [Python](https://github.com/xALEGORx/LolzApi/)
+- [C#](https://github.com/fanidamn/LolzMarketAPI)
 
 ## About Market API
 Market API almost completely repeats WEB requests. Query parameters match. The only differences are the presence of PUT and DELETE methods (more on that below).

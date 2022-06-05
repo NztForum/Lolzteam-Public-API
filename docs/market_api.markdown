@@ -18,7 +18,7 @@ For example, a request to book an account on the WEB looks like this: `lolz.guru
 `api.lolz.guru/`
 
 ### Rate limit
-20 requests per minute
+20 requests per minute (3 seconds delay between per request)
 
 
 ## Accounts list

@@ -1484,6 +1484,7 @@ Detail information of a user.
     {
         user: {
             user_id: (int),
+	    short_link: (string),
             username: (string),
             user_title: (string),
             +user_message_count: (int),

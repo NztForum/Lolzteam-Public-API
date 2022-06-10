@@ -1478,6 +1478,7 @@ Required scopes:
  * `admincp`
 
 ### GET `/users/:userId`
+### GET `/users/:shortLink`
 Detail information of a user.
 
     {

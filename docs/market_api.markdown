@@ -196,6 +196,8 @@ Parameters:
  * `email_type` (_optional_) Email type. Allowed values: `native` `autoreg`
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
  * `proxy_id` (_optional_) Using proxy id for account checking. See [Proxy Settings](#proxy-settings) to get or edit proxy list
+ * `random_proxy` (_optional_) Pass 1, if you get "steam_captcha" in previous response
+
 
 
 #### Item origin
@@ -230,6 +232,7 @@ Parameters:
  * `close_item` (_optional_) If set, the item will be closed `item_state = closed`
  * `extra` (_optional_) (Array) Extra params for account checking. E.g. you need to put cookies to `extra[cookies]` if you want to upload Fortnite/Epic Games account
  * `resell_item_id` Put if you are trying to resell an account.
+ * `random_proxy` (_optional_) Pass 1, if you get "steam_captcha" in previous response
 
 ### GET `/market/сategory`
 Display category list

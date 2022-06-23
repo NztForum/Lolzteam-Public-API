@@ -18,7 +18,7 @@ The API implements the OAuth 2.0 Authorization Framework ([RFC 6749](http://tool
  * Authorization code
  * Implicit
  * [Disabled] User credentials (username / password) 
- * Client credentials
+ * [Disabled] Client credentials
  * Refresh token
  * JWT bearer
 
@@ -37,11 +37,11 @@ With `user_id` is the ID of authenticated user; `timestamp` is the unix timestam
     $ott = sprintf('%d,%d,%s,%s', $userId, $timestamp, $once, $clientId);
 
 ### Configuration
- * TTL of access token: 1 hour
+ * TTL of access token: 180 days
  * TTL of authorization code: 30 seconds
  * TTL of refresh token: 2 weeks
- * Authorization URI: `/oauth/authorize`
- * Access token exchange URI: `/oauth/token`
+ * Authorization URI: `/oauth/authorize` (__Recommended__)
+ * Access token exchange URI: `/oauth/token` __(Disabled__)
  * Token param name: `oauth_token`
  * Token bearer header name: `Bearer`
 

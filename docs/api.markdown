@@ -39,7 +39,7 @@ With `user_id` is the ID of authenticated user; `timestamp` is the unix timestam
 ### Configuration
  * TTL of access token: 180 days
  * TTL of authorization code: 30 seconds
- * TTL of refresh token: 2 weeks
+ * TTL of refresh token: 180 days
  * Authorization URI: `/oauth/authorize` (__Recommended__)
  * Access token exchange URI: `/oauth/token` __(Disabled__)
  * Token param name: `oauth_token`

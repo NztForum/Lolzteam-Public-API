@@ -320,6 +320,19 @@ For categories, which required temporary email (Steam, Social Club) you need to 
 ### POST `/market/item/add/`
 Adds account on the market. After this request an account will have `item_state = awaiting` (not displayed in search)
 
+        {
+            "status": "ok",
+            "item": {
+                "item_id": (int),
+                "item_state": "awaiting",
+                ...
+            },
+            "system_info": {
+                "visitor_id": (int),
+                "time": (unix timestamp in seconds)
+            }
+        }
+
 Parameters:
 
  * `title` (__required__) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
@@ -359,12 +372,36 @@ Account origin. Where did you get it from.
 ### GET `/market/:itemId/goods/add`
 Get info about not published item. For categories, which required temporary email (Steam, Social Club), you will get temporary email in response.
 
+        {
+            "status": "ok",
+            "item": {
+                "item_id": (int),
+                "item_state": "awaiting",
+                ...
+            },
+            "system_info": {
+                "visitor_id": (int),
+                "time": (unix timestamp in seconds)
+            "temp_email": (string),
+            "sessionLoginData": [],
+            "ignoreCookieUpload": (boolean),
+
+            }
+        }
 Parameters:
  * `resell_item_id` (_optional_) Put item id, if you are trying to resell item. This is useful to pass temporary email from reselling item to new item. You will get same temporary email from reselling account.
 
 ### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.
 
+    {
+        "status": (string),
+        "message": (string),
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
 Parameters:
  * `login` (_optional_) Account login (or email)
  * `password` (_optional_) Account password
@@ -377,6 +414,18 @@ Parameters:
 ### GET `/market/сategory`
 Display category list
 
+    {
+        "category_id": (int),
+        "sub_category_id": (int),
+        "category_order": (int),
+        "category_title": (string),
+        "category_name": (string),
+        "category_url": (string),
+        "category_description_html": (string),
+        "category_login_url": (string),
+        ...
+    }
+    ...
 Parameters:
  * `top_queries` (_optional_) (Boolean) Display top queries for per category
 
@@ -385,6 +434,17 @@ Parameters:
 ### GET `/market/:itemId/email-code`
 Gets confirmation code or link.
 
+    {
+        "item": {
+        (account)
+        },
+        "codeData": {
+            "code": (sring),
+            "date": (unix timestamp in seconds),
+            "textPlain": (string)
+        }
+    }
+    
 Parameters:
  * `email` (__required__) Account email
 
@@ -392,18 +452,31 @@ Parameters:
 ### POST `/market/:itemId/refuse-guarantee`
 Cancel guarantee of account. It can be useful for account reselling.
 
+    {
+        "status": "ok",
+        "message": "Changes Saved"
+    }
 Parameters:
  * N/A
 
 ### POST `/market/:itemId/change-password`
 Changes password of account.
 
+    {
+        "status": "ok",
+        "message": "Changes Saved"
+        "new_password": (string)
+    }
 Parameters:
  * `_cancel` (_optional_) Cancel change password recommendation. It will be helpful, if you don't want to change password and get login data
 
 ### PUT `/market/:itemId/edit`
 Edits any details of account.
 
+    {
+        "status": "ok",
+        "message": "Changes Saved"
+    }
 Parameters:
 * `key` (_optional) Key to edit (key list you can see below). E.g. price.
 * `value` (_optional) Value to edit
@@ -426,6 +499,14 @@ Parameters:
 ### DELETE `/market/:itemId`
 Deletes your account from public search. Deletetion type is soft. You can restore account after deletetion if you want. 
 
+    {
+        "status": "ok",
+        "message": (string),
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
 Parameters:
 * `reason` (__requred__) Delete reason
 
@@ -433,6 +514,24 @@ Parameters:
 ### POST `/market/:itemId/tag`
 Adds tag for the account
 
+    {
+        "itemId": (int),
+        "tag": {
+            "tag_id": (int),
+            "title": (string),
+            "isDefault": (boolean),
+            "forOwnedAccountsOnly": (boolean),
+            "bc": (string)
+        },
+        "addedTagId": (int),
+        "deleteTags": [
+            (int)
+        ],
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
 Parameters:
  * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/me`)
 
@@ -440,12 +539,30 @@ Parameters:
 ### DELETE `/market/:itemId/tag`
 Deletes tag for the account
 
+    {
+        "itemId": (int),
+        "deleteTags": [
+            (int)
+        ],
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
 Parameters:
  * `tag_id` (__required__) Tag id
 
 ### POST `/market/:itemId/bump`
 Bumps account in the search
 
+    {
+        "status": "ok",
+        "message": (string),
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
 Parameters:
  * N/A
 
@@ -458,24 +575,40 @@ Parameters:
 ### DELETE `/market/:itemId/star`
 Deletes account from favourites
 
+    {
+        "status": "ok",
+        "message": "Changes Saved"
+    }
 Parameters:
  * N/A
 
 ### POST `/market/:itemId/stick`
 Stick account in the top of search
 
+    {
+        "status": "ok",
+        "message": (string)
+    }
 Parameters:
  * N/A
 
 ### DELETE `/market/:itemId/stick`
 Unstick account of the top of search
 
+    {
+        "status": "ok",
+        "message": "Changes Saved"
+    }
 Parameters:
  * N/A
 
 ### POST `/market/:itemId/change-owner`
 Change of account owner
 
+    {
+        "status": "ok",
+        "message": "Changes Saved"
+    }
 Parameters:
  * `username` (__required__) The username of the new account owner
  * `secret_answer` (__required__) Secret answer of your account
@@ -492,6 +625,31 @@ Parameters:
 ### PUT `/market/me`
 Change settings about your profile on the market
 
+    {
+        "user": {
+            "user_id": (int),
+            "username": (string),
+            "user_message_count": (int),
+            "user_register_date": (unix timestamp in seconds),
+            "user_like_count": (int),
+            "short_link": (string),
+            "user_email": (string),
+            "user_unread_notification_count": (int),
+            "user_dob_day": (int),
+            "user_dob_month": (int),
+            "user_dob_year": (int),
+            "user_title": (string),
+            "user_last_seen_date": (unix timestamp in seconds),
+            "balance": (int),
+            "hold": (int),
+            ...
+            "system_info": {
+                "visitor_id": (int),
+                "time": (unix timestamp in seconds)
+            ...
+        }
+    }
+        
 Parameters:
 
  * `disable_steam_guard` (_optional_) (Boolean) Disable Steam Guard on account purchase moment

@@ -663,6 +663,22 @@ Parameters:
 #### GET `/market/proxy`
 Gets your proxy list
 
+    {
+        "proxies": {
+            (string): {
+                "proxy_id": (int),
+                "user_id": (int),
+                "proxy_ip": (string),
+                "proxy_port": (int),
+                "proxy_user": (string),
+                "proxy_pass": (string),
+                "proxyString": (string)
+            },
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
 Parameters:
 
  * N/A
@@ -670,6 +686,10 @@ Parameters:
 #### POST `/market/proxy`
 Add single proxy or proxy list
 
+    {
+        "status": "ok",
+        "message": "Changes Saved",
+    }
 __To add single proxy use this parameters__:
  * `proxy_ip` (__required__) Proxy ip or host
  * `proxy_port` (__required__) Proxy port
@@ -683,6 +703,10 @@ __To add proxy list use this parameters__:
 #### DELETE `/market/proxy`
 Delete single or all proxies
 
+    {
+        "status": "ok",
+        "message": "Changes Saved",
+    }
 Parameters:
  * `proxy_id` (_optional_) Proxy id
  * `delete_all` (_optional_) Set boolean if you want to delete all proxy

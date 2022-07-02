@@ -14,20 +14,64 @@ For using this api you need to get Access Token with **read+post+market** scope
 Market API almost completely repeats WEB requests. Query parameters match. The only differences are the presence of PUT and DELETE methods (more on that below).
 For example, a request to book an account on the WEB looks like this: `lolz.guru/market/:itemId/reserve?price=:accountPrice`, and an API request looks like this: `api.lolz.guru/market/:itemId/reserve?price=accountPrice`.
 
-### API Base URI
+### API Base URIs
 `api.lolz.guru/`
+`lolz.guru/api/`
 
 ### Rate limit
 20 requests per minute (3 seconds delay between per request)
+If you exceed the limit, the response code 429 will be returned to you.
 
+## Response Example
+    {
+      item: {
+          "item_id": (int),
+          "item_state": (string),
+          "published_date": (unix timestamp in seconds),
+          "title": (string),
+          "description": (string),
+          "price": (int),
+          ...
+          },
+      "seller": {
+          "user_id": (int),
+          "username": (string),
+          "avatar_date": (unix timestamp in seconds),
+          "user_group_id": (int),
+          "secondary_group_ids": (string),
+          "display_style_group_id": (int),
+          "uniq_username_css": (string)
+          }
+    }
+### Success
+
+    {
+        "status": "ok",
+        "message": "Changes Saved",
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
 
 ## Accounts list
 ### GET `/market`
 Displays a list of latest accounts
-
+    
+    {
+      "items": [
+        (account)
+      ],
+      "totalItems": (int),
+      "totalItemsPrice": (int),
+      "perPage": (int),
+      "page": (int),
+      "searchUrl": (string),
+    }
 Parameters:
 
  * N/A
+
 
 
 
@@ -61,8 +105,9 @@ Parameters:
  * `19` `vpn` - VPN
  * `20` `tiktok` - TikTok
  * `22` `discord` - Discord
+ * `23` `cinema` - Online Cinema
 
-### GET `/market/user/:userId/items/`
+### GET `/market/user/:userId/items`
 Displays a list of owned accounts
 
 Parameters:
@@ -72,7 +117,7 @@ Parameters:
  * `title` (_optional_): The word or words contained in the account title
  * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser [or in WEB url](#about-market-api)
 
-### GET `/market/user/:userId/orders/`
+### GET `/market/user/:userId/orders`
 Displays a list of purchased accounts
 
 Parameters:
@@ -96,7 +141,34 @@ Parameters:
 
 ### GET `/market/:itemId`
 Displays account information
-
+    
+    {
+      item: {
+          "item_id": (int),
+          "item_state": (string),
+          "published_date": (unix timestamp in seconds),
+          "title": (string),
+          "description": (string),
+          "price": (int),
+          "update_stat_date": (unix timestamp in seconds),
+          "refreshed_date": (unix timestamp in seconds),
+          "login": (string),
+          "temp_email": (string),
+          "view_count": (int),
+          "information": (string),
+          "item_origin": (string),
+          ...
+          },
+      "seller": {
+          "user_id": (int),
+          "username": (string),
+          "avatar_date": (unix timestamp in seconds),
+          "user_group_id": (int),
+          "secondary_group_ids": (string),
+          "display_style_group_id": (int),
+          "uniq_username_css": (string)
+          }
+    }
 Parameters:
 
  * N/A
@@ -107,7 +179,18 @@ POST [`/market/:itemId/reserve`](#post-marketitemidreserve), POST [`/market/:ite
 
 #### POST `/market/:itemId/reserve`
 Reserves account for you. Reserve time - 300 seconds.
-
+    
+    {
+      "status": "ok",
+      "reserve_end_date": (unix timestamp in seconds),
+      "item": {
+          (account)
+      },
+      "system_info": {
+          "visitor_id": (int),
+          "time": (unix timestamp in seconds)
+      }
+    }
 Parameters:
 
  * `price` (__required__) Currenct price of account in your currency
@@ -116,6 +199,10 @@ Parameters:
 #### POST `/market/:itemId/cancel-reserve`
 Cancels reserve.
 
+    {
+        status: "ok",
+        message: "Changes Saved"
+    }
 Parameters:
 
  * N/A
@@ -123,6 +210,16 @@ Parameters:
 #### POST `/market/:itemId/check-account`
 Checking account for validity. If the account is invalid, the purchase will be canceled automatically (you don't need to make request POST `/market/:itemId/cancel-reserve`
 
+    {
+      "status": "ok",
+      "item": {
+          (account)
+      },
+      "system_info": {
+          "visitor_id": (int),
+          "time": (unix timestamp in seconds)
+      }
+    }
 Parameters:
 
  * N/A
@@ -130,6 +227,27 @@ Parameters:
 #### POST `/market/:itemId/confirm-buy`
 Confirm buy.
 
+    {
+      "status": "ok",
+      "reserve_end_date": (unix timestamp in seconds),
+      "item": {
+          "loginData": {
+            "raw": (string),
+            "encodedRaw": (string),
+            "login": (string),
+            "password": (string),
+            "encodedPassword": (string),
+            "oldPassword": (string),
+            "encodedOldPassword": (string),
+            "adviceToChangePassword": (boolean)
+        },
+        ...
+      },
+      "system_info": {
+          "visitor_id": (int),
+          "time": (unix timestamp in seconds)
+      }
+    }
 Parameters:
 
  * N/A
@@ -137,9 +255,17 @@ Parameters:
 
 ## Money transfers and payments list
 
-### POST `/market/balance/transfer/`
-Send money to any user.
+### POST `/market/balance/transfer`
+Send money to any user
 
+    {
+        "status": (string),
+        "message": (string),
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
 Parameters:
 
  * `user_id` (__required__) User id of receiver. If `user_id` specified, `username` is not required.
@@ -160,6 +286,20 @@ E.g. you want to hold money transfer on 12 hours.
 
 ### GET `/market/user/:userId/payments`
 Displays list of your payments
+
+    {
+        "payments": {
+        (payment)
+        },
+        "hasNextPage": (boolean),
+        "lastOperationId": (int),
+        "nextPageHref": (string),
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
+Parameters:
  * `type` (_optional_): Type of operation. Allowed operation types: `income` `cost` `refilled_balance` `withdrawal_balance` `paid_item` `sold_item` `money_transfer` `receiving_money` `internal_purchase` `claim_hold`
  * `pmin` (_optional_): Minimal price of operation (Inclusive)
  * `pmax` (_optional_): Maximum price of operation (Inclusive)
@@ -185,9 +325,9 @@ Parameters:
  * `title` (__required__) Russian title of account. If `title` specified and `title_en` is empty, `title_en` will be automatically translated to English language.
  * `title_en` (_optional_) English title of account. If `title_en` specified and `title` is empty, `title` will be automatically translated to Russian language.
  * `price` (__required__) Account price in your currency
- * `category_id` (__required__) Category id
+ * `category_id` (__required__) [Category id](#category-id-names-list)
  * `currency` (__required__) Using currency. Allowed values: `cny` `usd` `rub` `eur` `uah` `kzt` `byn` `gbp`
- * `item_origin` (__required__) Item origin
+ * `item_origin` (__required__) [Item origin](#item-origin)
  * `extended_guarantee` (__required__) Guarantee type. Allowed values: `-1` - 12 hours, `0` - 24 hours, `1` - 3 days.
  * `description` (_optional_) Account public description
  * `information` (_optional_) Account private information (visible for buyer only if purchased)
@@ -242,7 +382,7 @@ Parameters:
 
 ## Accounts managing
 
-### GET `/market/:itemId/email-code/`
+### GET `/market/:itemId/email-code`
 Gets confirmation code or link.
 
 Parameters:
@@ -261,7 +401,7 @@ Changes password of account.
 Parameters:
  * `_cancel` (_optional_) Cancel change password recommendation. It will be helpful, if you don't want to change password and get login data
 
-### PUT `/market/:itemId/edit/`
+### PUT `/market/:itemId/edit`
 Edits any details of account.
 
 Parameters:

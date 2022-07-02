@@ -11,8 +11,10 @@ The API implements the OAuth 2.0 Authorization Framework ([RFC 6749](http://tool
  * `admincp`
  * `market` Read this - [`/docs/market_api`](https://github.com/grisha2217/Lolzteam-Public-API/blob/master/docs/market_api.markdown)
 
-### API Base URI
+### API Base URIs
 `api.lolz.guru/`
+`lolz.guru/api`
+
 
 ### Supported grant types
  * Authorization code

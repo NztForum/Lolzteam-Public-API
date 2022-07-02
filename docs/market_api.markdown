@@ -141,6 +141,12 @@ Parameters:
 
 ### GET `/market/:itemId`
 Displays account information
+
+Parameters:
+
+ * N/A
+
+Response:
     
     {
       item: {
@@ -169,9 +175,7 @@ Displays account information
           "uniq_username_css": (string)
           }
     }
-Parameters:
 
- * N/A
 
 ## Account purchasing
 You need to make 3 requests:
@@ -179,7 +183,13 @@ POST [`/market/:itemId/reserve`](#post-marketitemidreserve), POST [`/market/:ite
 
 #### POST `/market/:itemId/reserve`
 Reserves account for you. Reserve time - 300 seconds.
-    
+
+Parameters:
+
+ * `price` (__required__) Currenct price of account in your currency
+ 
+Response:
+
     {
       "status": "ok",
       "reserve_end_date": (unix timestamp in seconds),
@@ -191,25 +201,33 @@ Reserves account for you. Reserve time - 300 seconds.
           "time": (unix timestamp in seconds)
       }
     }
-Parameters:
 
- * `price` (__required__) Currenct price of account in your currency
 
 
 #### POST `/market/:itemId/cancel-reserve`
 Cancels reserve.
 
-    {
-        status: "ok",
-        message: "Changes Saved"
-    }
 Parameters:
 
  * N/A
 
+Response:
+
+    {
+        status: "ok",
+        message: "Changes Saved"
+    }
+
+
 #### POST `/market/:itemId/check-account`
 Checking account for validity. If the account is invalid, the purchase will be canceled automatically (you don't need to make request POST `/market/:itemId/cancel-reserve`
 
+Parameters:
+
+ * N/A
+ 
+ Response:
+ 
     {
       "status": "ok",
       "item": {
@@ -220,13 +238,17 @@ Checking account for validity. If the account is invalid, the purchase will be c
           "time": (unix timestamp in seconds)
       }
     }
-Parameters:
 
- * N/A
 
 #### POST `/market/:itemId/confirm-buy`
 Confirm buy.
 
+Parameters:
+
+ * N/A
+ 
+ Response:
+ 
     {
       "status": "ok",
       "reserve_end_date": (unix timestamp in seconds),
@@ -248,9 +270,7 @@ Confirm buy.
           "time": (unix timestamp in seconds)
       }
     }
-Parameters:
 
- * N/A
 
 
 ## Money transfers and payments list
@@ -258,14 +278,6 @@ Parameters:
 ### POST `/market/balance/transfer`
 Send money to any user
 
-    {
-        "status": (string),
-        "message": (string),
-        "system_info": {
-            "visitor_id": (int),
-            "time": (unix timestamp in seconds)
-        }
-    }
 Parameters:
 
  * `user_id` (__required__) User id of receiver. If `user_id` specified, `username` is not required.
@@ -284,8 +296,33 @@ E.g. you want to hold money transfer on 3 days. `hold_length_value` - will be '3
 E.g. you want to hold money transfer on 12 hours.
 `hold_length_value` - will be '12', `hold_length_option` - will be 'hours'
 
+Response:
+
+    {
+        "status": (string),
+        "message": (string),
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
+
 ### GET `/market/user/:userId/payments`
 Displays list of your payments
+
+Parameters:
+ * `type` (_optional_): Type of operation. Allowed operation types: `income` `cost` `refilled_balance` `withdrawal_balance` `paid_item` `sold_item` `money_transfer` `receiving_money` `internal_purchase` `claim_hold`
+ * `pmin` (_optional_): Minimal price of operation (Inclusive)
+ * `pmax` (_optional_): Maximum price of operation (Inclusive)
+ * `receiver` (_optional_): Username of user, which receive money from you
+ * `sender` (_optional_): Username of user, which sent money to you
+ * `startDate` (_optional_): Start date of operation (RFC 3339 date format)
+ * `endDate` (_optional_): End date of operation (RFC 3339 date format)
+ * `wallet` (_optional_): Wallet, which used for money payots
+ * `comment` (_optional_): Comment for money transfers
+ * `is_hold` (_optional_): Display hold operations
+
+Response:
 
     {
         "payments": {
@@ -299,18 +336,6 @@ Displays list of your payments
             "time": (unix timestamp in seconds)
         }
     }
-Parameters:
- * `type` (_optional_): Type of operation. Allowed operation types: `income` `cost` `refilled_balance` `withdrawal_balance` `paid_item` `sold_item` `money_transfer` `receiving_money` `internal_purchase` `claim_hold`
- * `pmin` (_optional_): Minimal price of operation (Inclusive)
- * `pmax` (_optional_): Maximum price of operation (Inclusive)
- * `receiver` (_optional_): Username of user, which receive money from you
- * `sender` (_optional_): Username of user, which sent money to you
- * `startDate` (_optional_): Start date of operation (RFC 3339 date format)
- * `endDate` (_optional_): End date of operation (RFC 3339 date format)
- * `wallet` (_optional_): Wallet, which used for money payots
- * `comment` (_optional_): Comment for money transfers
- * `is_hold` (_optional_): Display hold operations
-
 
 ## Account publishing
 You need to make 2 requests:
@@ -319,19 +344,6 @@ For categories, which required temporary email (Steam, Social Club) you need to 
 
 ### POST `/market/item/add/`
 Adds account on the market. After this request an account will have `item_state = awaiting` (not displayed in search)
-
-        {
-            "status": "ok",
-            "item": {
-                "item_id": (int),
-                "item_state": "awaiting",
-                ...
-            },
-            "system_info": {
-                "visitor_id": (int),
-                "time": (unix timestamp in seconds)
-            }
-        }
 
 Parameters:
 
@@ -368,9 +380,29 @@ Account origin. Where did you get it from.
 - Epic games (id 12)
 - Escape from Tarkov (id 18)
 
+Response:
+
+        {
+            "status": "ok",
+            "item": {
+                "item_id": (int),
+                "item_state": "awaiting",
+                ...
+            },
+            "system_info": {
+                "visitor_id": (int),
+                "time": (unix timestamp in seconds)
+            }
+        }
+
 
 ### GET `/market/:itemId/goods/add`
 Get info about not published item. For categories, which required temporary email (Steam, Social Club), you will get temporary email in response.
+
+Parameters:
+ * `resell_item_id` (_optional_) Put item id, if you are trying to resell item. This is useful to pass temporary email from reselling item to new item. You will get same temporary email from reselling account.
+
+Response:
 
         {
             "status": "ok",
@@ -388,20 +420,10 @@ Get info about not published item. For categories, which required temporary emai
 
             }
         }
-Parameters:
- * `resell_item_id` (_optional_) Put item id, if you are trying to resell item. This is useful to pass temporary email from reselling item to new item. You will get same temporary email from reselling account.
 
 ### POST `/market/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.
 
-    {
-        "status": (string),
-        "message": (string),
-        "system_info": {
-            "visitor_id": (int),
-            "time": (unix timestamp in seconds)
-        }
-    }
 Parameters:
  * `login` (_optional_) Account login (or email)
  * `password` (_optional_) Account password
@@ -411,8 +433,24 @@ Parameters:
  * `resell_item_id` Put if you are trying to resell an account.
  * `random_proxy` (_optional_) Pass 1, if you get "steam_captcha" in previous response
 
+Response:
+
+    {
+        "status": (string),
+        "message": (string),
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
+
 ### GET `/market/сategory`
 Display category list
+
+Parameters:
+ * `top_queries` (_optional_) (Boolean) Display top queries for per category
+
+Response:
 
     {
         "category_id": (int),
@@ -426,13 +464,16 @@ Display category list
         ...
     }
     ...
-Parameters:
- * `top_queries` (_optional_) (Boolean) Display top queries for per category
 
 ## Accounts managing
 
 ### GET `/market/:itemId/email-code`
 Gets confirmation code or link.
+
+Parameters:
+ * `email` (__required__) Account email
+
+Response:
 
     {
         "item": {
@@ -445,38 +486,38 @@ Gets confirmation code or link.
         }
     }
     
-Parameters:
- * `email` (__required__) Account email
 
 
 ### POST `/market/:itemId/refuse-guarantee`
 Cancel guarantee of account. It can be useful for account reselling.
 
+Parameters:
+ * N/A
+
+Response:
+
     {
         "status": "ok",
         "message": "Changes Saved"
     }
-Parameters:
- * N/A
 
 ### POST `/market/:itemId/change-password`
 Changes password of account.
+
+Parameters:
+ * `_cancel` (_optional_) Cancel change password recommendation. It will be helpful, if you don't want to change password and get login data
+
+Response:
 
     {
         "status": "ok",
         "message": "Changes Saved"
         "new_password": (string)
     }
-Parameters:
- * `_cancel` (_optional_) Cancel change password recommendation. It will be helpful, if you don't want to change password and get login data
 
 ### PUT `/market/:itemId/edit`
 Edits any details of account.
 
-    {
-        "status": "ok",
-        "message": "Changes Saved"
-    }
 Parameters:
 * `key` (_optional) Key to edit (key list you can see below). E.g. price.
 * `value` (_optional) Value to edit
@@ -496,8 +537,20 @@ Parameters:
  * `allow_ask_discount` (_optional_) Allow users to ask discount for this account
  * `proxy_id` (_optional_) Using proxy id for account checking. See [GET /account/market](#account/market) to get or edit proxy list
 
+Response:
+
+    {
+        "status": "ok",
+        "message": "Changes Saved"
+    }
+
 ### DELETE `/market/:itemId`
 Deletes your account from public search. Deletetion type is soft. You can restore account after deletetion if you want. 
+
+Parameters:
+* `reason` (__requred__) Delete reason
+
+Response:
 
     {
         "status": "ok",
@@ -507,12 +560,14 @@ Deletes your account from public search. Deletetion type is soft. You can restor
             "time": (unix timestamp in seconds)
         }
     }
-Parameters:
-* `reason` (__requred__) Delete reason
-
 
 ### POST `/market/:itemId/tag`
 Adds tag for the account
+
+Parameters:
+ * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/me`)
+
+Response:
 
     {
         "itemId": (int),
@@ -532,12 +587,14 @@ Adds tag for the account
             "time": (unix timestamp in seconds)
         }
     }
-Parameters:
- * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/me`)
-
 
 ### DELETE `/market/:itemId/tag`
 Deletes tag for the account
+
+Parameters:
+ * `tag_id` (__required__) Tag id
+
+Response:
 
     {
         "itemId": (int),
@@ -549,11 +606,14 @@ Deletes tag for the account
             "time": (unix timestamp in seconds)
         }
     }
-Parameters:
- * `tag_id` (__required__) Tag id
 
 ### POST `/market/:itemId/bump`
 Bumps account in the search
+
+Parameters:
+ * N/A
+
+Response:
 
     {
         "status": "ok",
@@ -563,8 +623,6 @@ Bumps account in the search
             "time": (unix timestamp in seconds)
         }
     }
-Parameters:
- * N/A
 
 ### POST `/market/:itemId/star`
 Adds account from favourites
@@ -572,46 +630,71 @@ Adds account from favourites
 Parameters:
  * N/A
 
+Response:
+
+    {
+        "status": "ok",
+        "message": (string),
+        "system_info": {
+            "visitor_id": (int),
+            "time": (unix timestamp in seconds)
+        }
+    }
+
 ### DELETE `/market/:itemId/star`
 Deletes account from favourites
+
+Parameters:
+ * N/A
+
+Response:
 
     {
         "status": "ok",
         "message": "Changes Saved"
     }
-Parameters:
- * N/A
 
 ### POST `/market/:itemId/stick`
 Stick account in the top of search
+
+Parameters:
+ * N/A
+
+Response:
 
     {
         "status": "ok",
         "message": (string)
     }
-Parameters:
- * N/A
 
 ### DELETE `/market/:itemId/stick`
 Unstick account of the top of search
 
+Parameters:
+ * N/A
+
+Response:
+
+
     {
         "status": "ok",
         "message": "Changes Saved"
     }
-Parameters:
- * N/A
 
 ### POST `/market/:itemId/change-owner`
 Change of account owner
 
+Parameters:
+ * `username` (__required__) The username of the new account owner
+ * `secret_answer` (__required__) Secret answer of your account
+
+Response:
+
+
     {
         "status": "ok",
         "message": "Changes Saved"
     }
-Parameters:
- * `username` (__required__) The username of the new account owner
- * `secret_answer` (__required__) Secret answer of your account
 
 ## Market profile settings
 
@@ -622,34 +705,36 @@ Parameters:
 
  * N/A
 
+Response:
+
+    {
+            "user": {
+                "user_id": (int),
+                "username": (string),
+                "user_message_count": (int),
+                "user_register_date": (unix timestamp in seconds),
+                "user_like_count": (int),
+                "short_link": (string),
+                "user_email": (string),
+                "user_unread_notification_count": (int),
+                "user_dob_day": (int),
+                "user_dob_month": (int),
+                "user_dob_year": (int),
+                "user_title": (string),
+                "user_last_seen_date": (unix timestamp in seconds),
+                "balance": (int),
+                "hold": (int),
+                ...
+                "system_info": {
+                    "visitor_id": (int),
+                    "time": (unix timestamp in seconds)
+                ...
+            }
+        }
+
 ### PUT `/market/me`
 Change settings about your profile on the market
 
-    {
-        "user": {
-            "user_id": (int),
-            "username": (string),
-            "user_message_count": (int),
-            "user_register_date": (unix timestamp in seconds),
-            "user_like_count": (int),
-            "short_link": (string),
-            "user_email": (string),
-            "user_unread_notification_count": (int),
-            "user_dob_day": (int),
-            "user_dob_month": (int),
-            "user_dob_year": (int),
-            "user_title": (string),
-            "user_last_seen_date": (unix timestamp in seconds),
-            "balance": (int),
-            "hold": (int),
-            ...
-            "system_info": {
-                "visitor_id": (int),
-                "time": (unix timestamp in seconds)
-            ...
-        }
-    }
-        
 Parameters:
 
  * `disable_steam_guard` (_optional_) (Boolean) Disable Steam Guard on account purchase moment
@@ -657,11 +742,25 @@ Parameters:
  * `max_discount_percent` (_optional_) (UInt) Maximum discount percents for your accounts
  * `allow_accept_accounts` (_optional_) (String) Usernames who can transfer market accounts to you. Separate values with a comma.
  * `hide_favourites` (_optional_) (Boolean) Hide your profile info when you add an account to favorites
+ 
+ Response:
+ 
+     {
+        "status": "ok",
+        "message": "Changes Saved"
+    }
 
+ 
 
 ### Proxy settings
 #### GET `/market/proxy`
 Gets your proxy list
+
+Parameters:
+
+ * N/A
+
+Response:
 
     {
         "proxies": {
@@ -679,17 +778,10 @@ Gets your proxy list
             "time": (unix timestamp in seconds)
         }
     }
-Parameters:
-
- * N/A
 
 #### POST `/market/proxy`
 Add single proxy or proxy list
 
-    {
-        "status": "ok",
-        "message": "Changes Saved",
-    }
 __To add single proxy use this parameters__:
  * `proxy_ip` (__required__) Proxy ip or host
  * `proxy_port` (__required__) Proxy port
@@ -699,14 +791,23 @@ __To add single proxy use this parameters__:
 __To add proxy list use this parameters__:
 * `proxy_row` (__required__) Proxy list in String format ip:port:user:pass. Each proxy must be start with new line (use \r\n separator)
 
-
-#### DELETE `/market/proxy`
-Delete single or all proxies
+Response:
 
     {
         "status": "ok",
         "message": "Changes Saved",
     }
+
+#### DELETE `/market/proxy`
+Delete single or all proxies
+
 Parameters:
  * `proxy_id` (_optional_) Proxy id
  * `delete_all` (_optional_) Set boolean if you want to delete all proxy
+
+Response:
+
+    {
+        "status": "ok",
+        "message": "Changes Saved",
+    }

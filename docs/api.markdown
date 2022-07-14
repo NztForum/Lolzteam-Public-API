@@ -1473,6 +1473,7 @@ Parameters:
 
  * `username` (_optional_): username to filter. Usernames start with the query will be returned.
  * `user_email` (_optional_): email to filter. Requires `admincp` scope.
+ * `custom_fields` (_optional_): custom fields to filter. Example: custom_fields[telegram]=telegramLogin.
 
 Required scopes:
 

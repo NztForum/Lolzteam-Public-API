@@ -107,6 +107,7 @@ Parameters:
  * `20` `tiktok` - TikTok
  * `22` `discord` - Discord
  * `23` `cinema` - Online Cinema
+ * `24` `telegram` - Telegram
 
 ### GET `/market/user/:userId/items`
 Displays a list of owned accounts

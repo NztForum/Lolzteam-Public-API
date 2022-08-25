@@ -117,6 +117,7 @@ Parameters:
  * `pmax` (_optional_): Maximum price of account (Inclusive)
  * `title` (_optional_): The word or words contained in the account title
  * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser [or in WEB url](#about-market-api)
+ * `game[]` (_optional_): The ID of a game found on the account
 
 ### GET `/market/user/:userId/orders`
 Displays a list of purchased accounts

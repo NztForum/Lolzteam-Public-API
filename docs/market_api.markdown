@@ -179,6 +179,66 @@ Response:
           }
     }
 
+### GET `/market/:categoryName/params`
+Displays search parameters for a category
+
+Parameters:
+
+ * N/A
+
+Response:
+
+    {
+        "category": {
+            "category_id": (int),
+            "sub_category_id": (int),
+            "category_order": (int),
+            "category_title": (string),
+            "category_name": (string),
+            "category_url": (string),
+            ...
+        },
+        "params": [
+            {
+                "name": (string),
+                "input": (string),
+                "description": (string),
+                "values": [
+                    (string)
+                    ...
+                ]
+            }
+            ...
+        ]
+    }
+
+### GET `/market/:categoryName/games`
+Displays a list of games in the category
+
+Parameters:
+
+ * N/A
+
+Response:
+
+    {
+        "games": [
+            {
+                "app_id": (string),
+                "title": (string),
+                "category_id": (int),
+                "img": (string),
+                "ru": [
+                    (string)
+                    ...
+                ],
+                "url": (string)
+            }
+            ...
+        ]
+    }
+
+
 
 ## Account purchasing
 You need to make 3 requests:

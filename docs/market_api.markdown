@@ -104,6 +104,7 @@ Parameters:
  * `15` `supercell` - Supercell
  * `17` `genshin-impact` - Genshin Impact
  * `18` `escape-from-tarkov` - Escape From Tarkov
+ * `11` `valorant` - Valorant
  * `19` `vpn` - VPN
  * `20` `tiktok` - TikTok
  * `22` `discord` - Discord

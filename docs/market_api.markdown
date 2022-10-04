@@ -97,6 +97,7 @@ Parameters:
  * `7` `socialclub` - Social Club
  * `9` `fortnite` - Fortnite
  * `12` `epic-games` - Epic Games
+ * `13` `valorant` - Valorant
  * `10` `instagram` - Instagram
  * `11` `battlenet` - Battle.net
  * `14` `world-of-tanks` - World Of Tanks

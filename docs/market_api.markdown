@@ -96,7 +96,7 @@ Parameters:
  * `5` `uplay` - Uplay
  * `7` `socialclub` - Social Club
  * `9` `fortnite` - Fortnite
- * `12` `epic-games` - Epic Games
+ * `12` `epicgames` - Epic Games
  * `13` `valorant` - Valorant
  * `10` `instagram` - Instagram
  * `11` `battlenet` - Battle.net
@@ -110,6 +110,7 @@ Parameters:
  * `22` `discord` - Discord
  * `23` `cinema` - Online Cinema
  * `24` `telegram` - Telegram
+ * `25` `youtube` - YouTube
 
 ### GET `/market/user/:userId/items`
 Displays a list of owned accounts

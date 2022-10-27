@@ -243,6 +243,11 @@ Response:
 
 
 ## Account purchasing
+First way:
+#### POST `/market/:itemId/fast-buy`
+Check and buy account.
+
+Second way:
 You need to make 3 requests:
 POST [`/market/:itemId/reserve`](#post-marketitemidreserve), POST [`/market/:itemId/check-account`](#post-marketitemidcheck-account) and POST [`/market/:itemId/confirm-buy`](#post-marketitemidconfirm-buy)
 

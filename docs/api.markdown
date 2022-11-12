@@ -2235,7 +2235,7 @@ Detail information of a conversation.
                     avatar_small: (uri) # since forum-2018071201
                 }
                 ...
-            ]
+            ],
             links: {
                 permalink: (uri),
                 detail: (uri),

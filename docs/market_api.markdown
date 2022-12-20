@@ -16,6 +16,7 @@ For example, a request to book an account on the WEB looks like this: `lolz.guru
 
 ### API Base URIs
 `api.zelenka.guru/`
+Starting from 1 January, 2023 new Base URIs will be `api.lzt.market`
 
 ### Rate limit
 20 requests per minute (3 seconds delay between per request)

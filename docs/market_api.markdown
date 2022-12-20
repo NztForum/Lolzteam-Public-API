@@ -15,7 +15,7 @@ Market API almost completely repeats WEB requests. Query parameters match. The o
 For example, a request to book an account on the WEB looks like this: `lolz.guru/market/:itemId/reserve?price=:accountPrice`, and an API request looks like this: `api.lolz.guru/market/:itemId/reserve?price=accountPrice`.
 
 ### API Base URIs
-`api.lolz.guru/`
+`api.zelenka.guru/`
 
 ### Rate limit
 20 requests per minute (3 seconds delay between per request)

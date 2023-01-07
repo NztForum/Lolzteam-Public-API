@@ -249,6 +249,10 @@ First way:
 #### POST `/market/:itemId/fast-buy`
 Check and buy account.
 
+Parameters:
+
+ * `price` (__required__) Currenct price of account in your currency
+
 Second way:
 You need to make 3 requests:
 POST [`/market/:itemId/reserve`](#post-marketitemidreserve), POST [`/market/:itemId/check-account`](#post-marketitemidcheck-account) and POST [`/market/:itemId/confirm-buy`](#post-marketitemidconfirm-buy)

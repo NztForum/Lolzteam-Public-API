@@ -1596,7 +1596,7 @@ Parameters:
  * `primary_group_id` (_optional_): id of new primary group. Since forum-2015100702.
  * `secondary_group_ids` (_optional_): array of ids of new secondary groups. Since forum-2015100702.
 
- * `user_dob_day` (_optional_): new date of birth (day) of the user. This parameter must come together with `user_dob_month` and `user_dob_year`. User can add his/her own date of birth but changing existing data requires Administrator permission.
+ * `user_dob_day` (_optional_): new date of birth (day) of the user. This parameter must come together with `user_dob_month` and `user_dob_year`.
  * `user_dob_month` (_optional_): new date of birth (month) of the user.
  * `user_dob_year` (_optional_): new date of birth (year) of the user.
 

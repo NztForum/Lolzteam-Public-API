@@ -12,12 +12,10 @@ For using this api you need to get Access Token with **read+post+market** scope
 
 ## About Market API
 Market API almost completely repeats WEB requests. Query parameters match. The only differences are the presence of PUT and DELETE methods (more on that below).
-For example, a request to book an account on the WEB looks like this: `lolz.guru/market/:itemId/reserve?price=:accountPrice`, and an API request looks like this: `api.lolz.guru/market/:itemId/reserve?price=accountPrice`.
+For example, a request to book an account on the WEB looks like this: `zelenka.guru/market/:itemId/reserve?price=:accountPrice`, and an API request looks like this: `api.lzt.market/:itemId/reserve?price=accountPrice`.
 
 ### API Base URIs
-`api.zelenka.guru/`
-
-Starting from 1 January, 2023 new Base URIs will be `api.lzt.market`
+`api.lzt.market/`
 
 ### Rate limit
 20 requests per minute (3 seconds delay between per request)
@@ -56,7 +54,7 @@ If you exceed the limit, the response code 429 will be returned to you.
     }
 
 ## Accounts list
-### GET `/market`
+### GET `/`
 Displays a list of latest accounts
     
 Parameters:
@@ -77,7 +75,7 @@ Response:
     }
 
 
-### GET `/market/:categoryName`
+### GET `/:categoryName`
 Displays a list of accounts in a specific category according to your parameters
 
 Parameters:
@@ -114,7 +112,7 @@ Parameters:
  * `24` `telegram` - Telegram
  * `25` `youtube` - YouTube
 
-### GET `/market/user/:userId/items`
+### GET `/user/:userId/items`
 Displays a list of owned accounts
 
 Parameters:
@@ -124,7 +122,7 @@ Parameters:
  * `title` (_optional_): The word or words contained in the account title
  * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser [or in WEB url](#about-market-api)
 
-### GET `/market/user/:userId/orders`
+### GET `/user/:userId/orders`
 Displays a list of purchased accounts
 
 Parameters:
@@ -134,19 +132,19 @@ Parameters:
  * `title` (_optional_): The word or words contained in the account title
  * `Optional category parametes` (_optional_): You can find it using "Inspect code element" in your browser [or in WEB url](#about-market-api)
 
-### GET `/market/fave`
+### GET `/fave`
 Displays a list of favourites accounts
 
 Parameters:
  * N/A
 
-### GET `/market/viewed`
+### GET `/viewed`
 Displays a list of viewed accounts
 
 Parameters:
  * N/A
 
-### GET `/market/:itemId`
+### GET `/:itemId`
 Displays account information
 
 Parameters:
@@ -183,7 +181,7 @@ Response:
           }
     }
 
-### GET `/market/:categoryName/params`
+### GET `/:categoryName/params`
 Displays search parameters for a category
 
 Parameters:
@@ -216,7 +214,7 @@ Response:
         ]
     }
 
-### GET `/market/:categoryName/games`
+### GET `/:categoryName/games`
 Displays a list of games in the category
 
 Parameters:
@@ -246,7 +244,7 @@ Response:
 
 ## Account purchasing
 First way:
-#### POST `/market/:itemId/fast-buy`
+#### POST `/:itemId/fast-buy`
 Check and buy account.
 
 Parameters:
@@ -255,9 +253,9 @@ Parameters:
 
 Second way:
 You need to make 3 requests:
-POST [`/market/:itemId/reserve`](#post-marketitemidreserve), POST [`/market/:itemId/check-account`](#post-marketitemidcheck-account) and POST [`/market/:itemId/confirm-buy`](#post-marketitemidconfirm-buy)
+POST [`/:itemId/reserve`](#post-marketitemidreserve), POST [`/:itemId/check-account`](#post-marketitemidcheck-account) and POST [`/:itemId/confirm-buy`](#post-marketitemidconfirm-buy)
 
-#### POST `/market/:itemId/reserve`
+#### POST `/:itemId/reserve`
 Reserves account for you. Reserve time - 300 seconds.
 
 Parameters:
@@ -280,7 +278,7 @@ Response:
 
 
 
-#### POST `/market/:itemId/cancel-reserve`
+#### POST `/:itemId/cancel-reserve`
 Cancels reserve.
 
 Parameters:
@@ -295,8 +293,8 @@ Response:
     }
 
 
-#### POST `/market/:itemId/check-account`
-Checking account for validity. If the account is invalid, the purchase will be canceled automatically (you don't need to make request POST `/market/:itemId/cancel-reserve`
+#### POST `/:itemId/check-account`
+Checking account for validity. If the account is invalid, the purchase will be canceled automatically (you don't need to make request POST `/:itemId/cancel-reserve`
 
 Parameters:
 
@@ -316,7 +314,7 @@ Parameters:
     }
 
 
-#### POST `/market/:itemId/confirm-buy`
+#### POST `/:itemId/confirm-buy`
 Confirm buy.
 
 Parameters:
@@ -351,7 +349,7 @@ Parameters:
 
 ## Money transfers and payments list
 
-### POST `/market/balance/transfer`
+### POST `/balance/transfer`
 Send money to any user
 
 Parameters:
@@ -383,7 +381,7 @@ Response:
         }
     }
 
-### GET `/market/user/:userId/payments`
+### GET `/user/:userId/payments`
 Displays list of your payments
 
 Parameters:
@@ -415,10 +413,10 @@ Response:
 
 ## Account publishing
 You need to make 2 requests:
-POST `/market/item/add` and POST `/market/:itemId/goods/check`
-For categories, which required temporary email (Steam, Social Club) you need to make GET `/market/:itemId/goods/add` to get temporary email 
+POST `/item/add` and POST `/:itemId/goods/check`
+For categories, which required temporary email (Steam, Social Club) you need to make GET `/:itemId/goods/add` to get temporary email 
 
-### POST `/market/item/add/`
+### POST `/item/add/`
 Adds account on the market. After this request an account will have `item_state = awaiting` (not displayed in search)
 
 Parameters:
@@ -472,7 +470,7 @@ Response:
         }
 
 
-### GET `/market/:itemId/goods/add`
+### GET `/:itemId/goods/add`
 Get info about not published item. For categories, which required temporary email (Steam, Social Club), you will get temporary email in response.
 
 Parameters:
@@ -497,7 +495,7 @@ Response:
             }
         }
 
-### POST `/market/:itemId/goods/check`
+### POST `/:itemId/goods/check`
 Check account on validity. If account is valid, account will be published on the market.
 
 Parameters:
@@ -520,7 +518,7 @@ Response:
         }
     }
 
-### GET `/market/сategory`
+### GET `/сategory`
 Display category list
 
 Parameters:
@@ -543,7 +541,7 @@ Response:
 
 ## Accounts managing
 
-### GET `/market/:itemId/email-code`
+### GET `/:itemId/email-code`
 Gets confirmation code or link.
 
 Parameters:
@@ -564,7 +562,7 @@ Response:
     
 
 
-### POST `/market/:itemId/refuse-guarantee`
+### POST `/:itemId/refuse-guarantee`
 Cancel guarantee of account. It can be useful for account reselling.
 
 Parameters:
@@ -577,7 +575,7 @@ Response:
         "message": "Changes Saved"
     }
 
-### POST `/market/:itemId/change-password`
+### POST `/:itemId/change-password`
 Changes password of account.
 
 Parameters:
@@ -591,7 +589,7 @@ Response:
         "new_password": (string)
     }
 
-### PUT `/market/:itemId/edit`
+### PUT `/:itemId/edit`
 Edits any details of account.
 
 Parameters:
@@ -620,7 +618,7 @@ Response:
         "message": "Changes Saved"
     }
 
-### DELETE `/market/:itemId`
+### DELETE `/:itemId`
 Deletes your account from public search. Deletetion type is soft. You can restore account after deletetion if you want. 
 
 Parameters:
@@ -637,11 +635,11 @@ Response:
         }
     }
 
-### POST `/market/:itemId/tag`
+### POST `/:itemId/tag`
 Adds tag for the account
 
 Parameters:
- * `tag_id` (__required__) Tag id (Tag list is available via GET `/market/me`)
+ * `tag_id` (__required__) Tag id (Tag list is available via GET `/me`)
 
 Response:
 
@@ -664,7 +662,7 @@ Response:
         }
     }
 
-### DELETE `/market/:itemId/tag`
+### DELETE `/:itemId/tag`
 Deletes tag for the account
 
 Parameters:
@@ -683,7 +681,7 @@ Response:
         }
     }
 
-### POST `/market/:itemId/bump`
+### POST `/:itemId/bump`
 Bumps account in the search
 
 Parameters:
@@ -700,7 +698,7 @@ Response:
         }
     }
 
-### POST `/market/:itemId/star`
+### POST `/:itemId/star`
 Adds account from favourites
 
 Parameters:
@@ -717,7 +715,7 @@ Response:
         }
     }
 
-### DELETE `/market/:itemId/star`
+### DELETE `/:itemId/star`
 Deletes account from favourites
 
 Parameters:
@@ -730,7 +728,7 @@ Response:
         "message": "Changes Saved"
     }
 
-### POST `/market/:itemId/stick`
+### POST `/:itemId/stick`
 Stick account in the top of search
 
 Parameters:
@@ -743,7 +741,7 @@ Response:
         "message": (string)
     }
 
-### DELETE `/market/:itemId/stick`
+### DELETE `/:itemId/stick`
 Unstick account of the top of search
 
 Parameters:
@@ -757,7 +755,7 @@ Response:
         "message": "Changes Saved"
     }
 
-### POST `/market/:itemId/change-owner`
+### POST `/:itemId/change-owner`
 Change of account owner
 
 Parameters:
@@ -774,7 +772,7 @@ Response:
 
 ## Market profile settings
 
-### GET `/market/me`
+### GET `/me`
 Displays info about your profile
 
 Parameters:
@@ -808,7 +806,7 @@ Response:
             }
         }
 
-### PUT `/market/me`
+### PUT `/me`
 Change settings about your profile on the market
 
 Parameters:
@@ -829,7 +827,7 @@ Parameters:
  
 
 ### Proxy settings
-#### GET `/market/proxy`
+#### GET `/proxy`
 Gets your proxy list
 
 Parameters:
@@ -855,7 +853,7 @@ Response:
         }
     }
 
-#### POST `/market/proxy`
+#### POST `/proxy`
 Add single proxy or proxy list
 
 __To add single proxy use this parameters__:
@@ -874,7 +872,7 @@ Response:
         "message": "Changes Saved",
     }
 
-#### DELETE `/market/proxy`
+#### DELETE `/proxy`
 Delete single or all proxies
 
 Parameters:

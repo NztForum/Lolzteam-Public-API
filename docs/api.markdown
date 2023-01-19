@@ -14,6 +14,10 @@ The API implements the OAuth 2.0 Authorization Framework ([RFC 6749](http://tool
 ### API Base URI
 `api.zelenka.guru`
 
+### Rate limit
+20 requests per minute (3 seconds delay between per request)
+If you exceed the limit, the response code 429 will be returned to you.
+
 
 ### Supported grant types
  * Authorization code

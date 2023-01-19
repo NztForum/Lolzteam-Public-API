@@ -9,8 +9,6 @@ This repository includes code for:
 ### API Base URIs
 `api.zelenka.guru/`
 
-Starting from 1 January, 2023 new Base URIs will be `api.lzt.market`
-
 ### Rate limit
 20 requests per minute (3 seconds delay between per request)
 If you exceed the limit, the response code 429 will be returned to you.

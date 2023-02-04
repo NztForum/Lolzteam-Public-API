@@ -250,6 +250,7 @@ Check and buy account.
 Parameters:
 
  * `price` (__required__) Currenct price of account in your currency
+ * `buy_without_validation` Put `1` if you want to buy account without account data validation (not safe)
 
 Second way:
 You need to make 3 requests:
@@ -318,9 +319,8 @@ Parameters:
 Confirm buy.
 
 Parameters:
+ * `buy_without_validation` Put `1` if you want to buy account without account data validation (not safe)
 
- * N/A
- 
  Response:
  
     {

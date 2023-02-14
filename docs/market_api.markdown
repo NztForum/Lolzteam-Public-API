@@ -395,6 +395,7 @@ Parameters:
  * `wallet` (_optional_): Wallet, which used for money payots
  * `comment` (_optional_): Comment for money transfers
  * `is_hold` (_optional_): Display hold operations
+ * `show_payment_stats` (_optional_): Display payment stats for selected period (outgoing value, incoming value)
 
 Response:
 

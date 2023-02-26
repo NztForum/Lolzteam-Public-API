@@ -96,10 +96,10 @@ Parameters:
  * `5` `uplay` - Uplay
  * `7` `socialclub` - Social Club
  * `9` `fortnite` - Fortnite
- * `12` `epicgames` - Epic Games
- * `13` `valorant` - Valorant
  * `10` `instagram` - Instagram
  * `11` `battlenet` - Battle.net
+ * `12` `epicgames` - Epic Games
+ * `13` `valorant` - Valorant
  * `14` `world-of-tanks` - World Of Tanks
  * `16` `wot-blitz` - World Of Tanks Blitz
  * `15` `supercell` - Supercell
@@ -187,6 +187,7 @@ Returns Steam account html code
 Parameters:
 
  * `type` (_optional_): Type of page - `profile` or `games`
+    
     
 ### GET `/:categoryName/params`
 Displays search parameters for a category

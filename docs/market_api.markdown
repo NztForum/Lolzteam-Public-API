@@ -180,7 +180,14 @@ Response:
           "uniq_username_css": (string)
           }
     }
+    
+### GET `/:itemId/steam-preview`
+Returns Steam account html code
 
+Parameters:
+
+ * `type` (_optional_): Type of page - `profile` or `games`
+    
 ### GET `/:categoryName/params`
 Displays search parameters for a category
 

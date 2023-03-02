@@ -597,6 +597,35 @@ Response:
         "message": "Changes Saved"
         "new_password": (string)
     }
+    
+    
+### GET `/:itemId/get-temp-email-password`
+Gets password from temp email of account. After calling of this method, you cannot automatically resell account.
+
+Parameters:
+ * N/A
+
+Response:
+
+    {
+        "item": {
+        (account)
+        },
+    }
+
+### POST `/:itemId/change-password`
+Changes password of account.
+
+Parameters:
+ * `_cancel` (_optional_) Cancel change password recommendation. It will be helpful, if you don't want to change password and get login data
+
+Response:
+
+    {
+        "status": "ok",
+        "message": "Changes Saved"
+        "new_password": (string)
+    }   
 
 ### PUT `/:itemId/edit`
 Edits any details of account.

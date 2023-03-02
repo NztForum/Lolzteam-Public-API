@@ -600,7 +600,7 @@ Response:
     
     
 ### GET `/:itemId/get-temp-email-password`
-Gets password from temp email of account. After calling of this method, you cannot automatically resell account.
+Gets password from temp email of account. After calling of this method, the warranty will be cancelled and you cannot automatically resell account.
 
 Parameters:
  * N/A

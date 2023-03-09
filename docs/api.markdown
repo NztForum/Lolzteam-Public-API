@@ -937,6 +937,15 @@ Required scopes:
 
  * `read`
 
+
+### POST `/threads/bump`
+Bump thread
+
+Required scopes:
+
+* `post`
+
+
 ## Posts
 
 ### GET `/posts`

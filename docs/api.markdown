@@ -938,7 +938,7 @@ Required scopes:
  * `read`
 
 
-### POST `/threads/bump`
+### POST `/threads/:threadId/bump`
 Bump thread
 
 Required scopes:

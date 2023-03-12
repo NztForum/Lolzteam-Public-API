@@ -599,7 +599,7 @@ Response:
     }
     
     
-### GET `/:itemId/get-temp-email-password`
+### GET `/:itemId/temp-email-password`
 Gets password from temp email of account. After calling of this method, the warranty will be cancelled and you cannot automatically resell account.
 
 Parameters:

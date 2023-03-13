@@ -569,6 +569,16 @@ Response:
         }
     }
     
+### GET `/:itemId/mafile`
+Returns mafile in JSON.
+
+Response:
+
+    {
+        "maFile": {
+        }
+    }
+ 
 
 
 ### POST `/:itemId/refuse-guarantee`

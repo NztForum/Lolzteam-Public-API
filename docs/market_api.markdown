@@ -52,6 +52,7 @@ If you exceed the limit, the response code 429 will be returned to you.
             "time": (unix timestamp in seconds)
         }
     }
+    
 
 ## Accounts list
 ### GET `/`
@@ -111,6 +112,8 @@ Parameters:
  * `23` `cinema` - Online Cinema
  * `24` `telegram` - Telegram
  * `25` `youtube` - YouTube
+ * `26` `spotify` - Spotify
+ * `27` `war-thunder` - War Thunder
 
 ### GET `/user/:userId/items`
 Displays a list of owned accounts
@@ -425,7 +428,7 @@ You need to make 2 requests:
 POST `/item/add` and POST `/:itemId/goods/check`
 For categories, which required temporary email (Steam, Social Club) you need to make GET `/:itemId/goods/add` to get temporary email 
 
-### POST `/item/add/`
+### POST `/item/add`
 Adds account on the market. After this request an account will have `item_state = awaiting` (not displayed in search)
 
 Parameters:

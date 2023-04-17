@@ -15,7 +15,7 @@ Market API almost completely repeats WEB requests. Query parameters match. The o
 For example, a request to book an account on the WEB looks like this: `zelenka.guru/market/:itemId/reserve?price=:accountPrice`, and an API request looks like this: `api.lzt.market/:itemId/reserve?price=accountPrice`.
 
 ### API Base URIs
-`api.lzt.market/`
+`api.lzt.market`
 
 ### Rate limit
 20 requests per minute (3 seconds delay between per request)
@@ -85,6 +85,7 @@ Parameters:
  * `pmax` (_optional_): Maximum price of account (Inclusive)
  * `title` (_optional_): The word or words contained in the account title
  * `parse_sticky_items` (_optional_): If yes, API will return stickied accounts in results
+ * `parse_same_items` (_optional_): If yes, API will return account history in results
  * `Optional category parameters` (_optional_): You can find it using "Inspect code element" in your browser [or in WEB url](#about-market-api)
  * `game[]` (_optional_): The ID of a game found on the account
  * `page` (_optional_): The number of the page to display results from

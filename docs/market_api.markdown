@@ -573,6 +573,22 @@ Response:
         }
     }
     
+    
+### GET `/:itemId/guard-code`
+Gets confirmation code from MaFile (Only for Steam accounts)
+
+Response:
+
+    {
+        "item": {
+        (account)
+        },
+        "codeData": {
+            "code": (sring),
+            "date": (unix timestamp in seconds),
+        }
+    }
+    
 ### GET `/:itemId/mafile`
 Returns mafile in JSON.
 

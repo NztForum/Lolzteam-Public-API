@@ -590,7 +590,7 @@ Response:
     }
     
 ### GET `/:itemId/mafile`
-Returns mafile in JSON.
+Returns mafile in JSON. Warning: this action is cancelling active account guarantee.
 
 Response:
 

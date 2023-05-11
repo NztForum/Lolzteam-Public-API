@@ -21,6 +21,10 @@ For example, a request to book an account on the WEB looks like this: `zelenka.g
 20 requests per minute (3 seconds delay between per request)
 If you exceed the limit, the response code 429 will be returned to you.
 
+### Search limit
+10 requests per minute (6 seconds delay between per request)
+If you exceed the limit, you will receive message error
+
 ## Response Example
     {
       item: {

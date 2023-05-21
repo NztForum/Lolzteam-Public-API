@@ -69,9 +69,9 @@ Parameters:
 Response:
 
     {
-      "items": {
+      "items": [
         (account)
-      },
+      ],
       "totalItems": (int),
       "totalItemsPrice": (int),
       "perPage": (int),

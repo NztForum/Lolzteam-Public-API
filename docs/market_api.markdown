@@ -871,10 +871,12 @@ Response:
                 "balance": (int),
                 "hold": (int),
                 ...
-                "system_info": {
-                    "visitor_id": (int),
-                    "time": (unix timestamp in seconds)
-                ...
+            }
+            "isIsolatedMarket": (boolean),
+            "isIsolatedMarketAlt": (boolean),
+            "system_info": {
+                 "visitor_id": (int),
+                 "time": (unix timestamp in seconds)
             }
         }
 
